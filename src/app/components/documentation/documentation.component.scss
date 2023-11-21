@@ -1,0 +1,33 @@
+
+
+.documentation-comp{
+    display: flex;
+    flex-direction: column;
+
+
+
+    h1{
+        font-size: 82px;
+        // text-align: center;
+    }
+    img{
+      
+        max-width: 80dvw;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .payload-info{
+        background-color: rgb(236, 236, 236);
+        padding: 40px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: flex-start;
+
+
+    
+    }
+
+}
+

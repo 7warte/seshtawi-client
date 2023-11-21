@@ -1,0 +1,47 @@
+<div class="component-container documentation-comp" >
+
+    <h1>Create a new article</h1>
+  
+    <hr/>
+
+
+    
+<h2>Article structure</h2>
+    <img src="assets/documentation/API/article.svg" />
+
+
+    <h2> New article, HTTP payload  </h2>
+
+    <div class="payload-info" > 
+        <pre>
+            {{this.new_article | json}}
+        </pre>
+
+    <div class="description">
+        <p>
+            This API endpoint facilitates the creation of a new blog article within the system. To create an article,
+            the request payload must adhere strictly to the structure defined by the <code>BlogArticle</code> interface.
+            Each article must contain all required components, ensuring completeness and accuracy in the article's content.
+          </p>
+        
+          <h2>Attributes (Required):</h2>
+          <ul>
+            <li><strong>timestamp:</strong> Represents the date and time of the article's creation.</li>
+            <li><strong>main_title:</strong> Refers to the primary title of the article.</li>
+            <li><strong>subtitle_1 and body_1:</strong> Essential components comprising the first section of the article, providing a subtitle and corresponding content.</li>
+            <li><strong>caption:</strong> Represents a brief description or caption associated with the article.</li>
+            <li><strong>tags:</strong> An array of strings containing keywords or labels to categorize and identify the article.</li>
+          </ul>
+        
+          <h2>Usage Notes:</h2>
+          <ul>
+            <li>Ensure that the <code>timestamp</code> field reflects the precise creation date and time.</li>
+            <li>The <code>main_title</code> field should encapsulate the core topic of the article.</li>
+            <li>Both <code>subtitle_1</code> and <code>body_1</code> sections must be provided to create the initial content of the article.</li>
+            <li>The <code>caption</code> field offers a concise summary or teaser for the article's content.</li>
+            <li>Utilize the <code>tags</code> array to associate relevant keywords or categories with the article for easy classification and retrieval.</li>
+          </ul>
+</div>
+   
+
+</div>
