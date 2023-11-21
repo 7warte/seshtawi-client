@@ -1,0 +1,13 @@
+<div class="component-container page homepage-comp">
+
+<div
+ *ngFor="let article of articles; let i =index"
+ [class]= "'article-card-' + article.formatIndex"
+ [ngStyle]="{
+    'border-radius':i ===0 
+    || i === 1 
+    || i ===2 ? '12px 12px 0 0':'0px' }">
+    index  {{article.formatIndex}}
+</div>
+
+</div>

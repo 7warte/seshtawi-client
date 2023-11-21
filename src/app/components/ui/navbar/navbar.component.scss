@@ -1,0 +1,76 @@
+.navbar-container {
+
+    background-color: #0F1923;
+    height: 84px;
+    width: 100%;
+
+    .navbar-inner {
+
+        // border: 1px solid white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1440px;
+        padding: 0 40px;
+        margin: auto;
+
+        height: 100%;
+
+        .blog-name {
+            color: #80FF00;
+            font-family: 'Roboto Condensed';
+            font-size: 45px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            cursor: pointer;
+        }
+
+        .actions-container {
+            // margin: 0 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            justify-content: space-between;
+            height: 26px;
+
+            img {
+                cursor: pointer;
+            }
+
+            .search-bar {
+
+                input[type='text'] {
+                    cursor: pointer;
+                    height: 25px;
+                    background-color: #80FF00;
+                    border-radius: 6px;
+                    border: none;
+                    transition: all 0.4s;
+                    padding: 0 5px;
+                    font-family: 'Roboto ', sans-serif;
+
+                }
+
+
+
+                input:focus {
+                    background-color: #FFD700;
+                    outline: none;
+
+                }
+
+            }
+
+        }
+
+
+
+
+
+
+    }
+
+}
