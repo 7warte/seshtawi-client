@@ -54,4 +54,24 @@
       (click)="fileUpload.click()">
     </button>
 </div>
-<button (click)="sendForm()" >SEND FORM</button>
+
+<div *ngIf="missingFields.length > 0" >
+
+       <p>
+              The following fields are empty:
+       </p>
+
+<div *ngFor="let item of missingFields">
+
+       <ul>
+              <li>{{item}}</li>
+
+       </ul>
+
+   
+
+</div>
+
+</div>
+
+<button (click)="formValidation()" >SEND FORM</button>
