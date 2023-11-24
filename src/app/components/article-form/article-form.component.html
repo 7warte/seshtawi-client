@@ -1,0 +1,57 @@
+
+<h1>New Article</h1>
+<h2>Image 1A</h2>
+<input name="photos" type="file" class="file-input"
+       (change)="onFileSelected($event, '1_A')" #fileUpload>
+<div class="file-upload">
+   {{fileName || "No file uploaded yet."}}
+</div>
+<h2> Main Title</h2>
+<textarea name="main_title"  #main_title (input)="onTextInput(main_title)" ></textarea>
+<h2> Subtitle 1</h2>
+<textarea name="subtitle_1"  #subtitle_1 (input)="onTextInput(subtitle_1)" ></textarea>
+<h2> body 1</h2>
+<textarea name="body_1"  #body_1 (input)="onTextInput(body_1)" ></textarea>
+<h2>Image 1B</h2>
+<input name="1B" type="file" class="file-input"
+       (change)="onFileSelected($event, '1_B')" #fileUpload>
+<div class="file-upload">
+   {{fileName || "No file uploaded yet."}}
+    <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+    </button>
+</div>
+<h2>Image 2B</h2>
+<input name="2B" type="file" class="file-input"
+       (change)="onFileSelected($event, '2_B')" #fileUpload>
+<div class="file-upload">
+   {{fileName || "No file uploaded yet."}}
+    <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+    </button>
+</div>
+<h2>Image 3B</h2>
+<input name="2B" type="file" class="file-input"
+       (change)="onFileSelected($event, '3_B')" #fileUpload>
+<div class="file-upload">
+   {{fileName || "No file uploaded yet."}}
+    <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+    </button>
+</div>
+<h2> Subtitle 2</h2>
+<textarea name="subtitle_2"  #subtitle_2 (input)="onTextInput(subtitle_2)" ></textarea>
+<h2> body 2</h2>
+<textarea name="body_2"  #body_2 (input)="onTextInput(body_2)"></textarea>
+<h2> caption</h2>
+<textarea name="caption"  #caption (input)="onTextInput(caption)" ></textarea>
+<h2>Image 1c</h2>
+<input name="2B" type="file" class="file-input"
+       (change)="onFileSelected($event, '1_C')" #fileUpload>
+<div class="file-upload">
+   {{fileName || "No file uploaded yet."}}
+    <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+    </button>
+</div>
+<button (click)="sendForm()" >SEND FORM</button>

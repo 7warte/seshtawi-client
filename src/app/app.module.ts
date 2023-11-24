@@ -8,13 +8,15 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { importProvidersFrom } from '@angular/core';
+import { ArticleFormComponent } from './components/article-form/article-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DocumentationComponent,
     NavbarComponent,
-    HomepageComponent
+    HomepageComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,
