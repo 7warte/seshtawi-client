@@ -6,17 +6,26 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./article-form.component.scss']
 })
 export class ArticleFormComponent {
+
+
+  blog_id: number = 1;
+
+
   @ViewChild('main_title') main_title: ElementRef | undefined;
   @ViewChild('subtitle_1') subtitle_1: ElementRef | undefined;
   @ViewChild('body_1') body_1: ElementRef | undefined;
   @ViewChild('subtitle_2') subtitle_2: ElementRef | undefined;
   @ViewChild('body_2') body_2: ElementRef | undefined;
   @ViewChild('caption') caption: ElementRef | undefined;
+  @ViewChild('tags') tags: ElementRef | undefined;
+
+
   fileName = '';
   missingFields: any[] = [];
   formData_CDN = new FormData();
   formData_backend = new FormData()
   pictures: any[] = []
+  pictures_info:any[]=[];
   constructor(private http: HttpClient) { }
   validationObject: any = {
     images: {
@@ -32,7 +41,8 @@ export class ArticleFormComponent {
       "body_1": false,
       "subtitle_2": false,
       "body_2": false,
-      "caption": false
+      "caption": false,
+      "tags": false
     }
   }
   formValidation() {
@@ -49,7 +59,7 @@ export class ArticleFormComponent {
       .values(this.validationObject.texts)
       .every(value => value === true);
     if (textsFilled === true && imagesFilled) {
-      // this.sendForm()
+      // this.sendForm()   <--------------
     }
     else {
       this.sendForm()
@@ -73,7 +83,16 @@ export class ArticleFormComponent {
     // validation 
     this.validationObject.images[inputName] = true;
     const file: any = event.target.files[0];
-    this.pictures.push(file);
+
+
+    console.log(inputName);
+    
+
+    let media = {file:file, position:inputName }
+
+    this.pictures.push(media);
+
+
     console.log(this.pictures);
   }
   onTextInput(textAreaRef: any) {
@@ -82,15 +101,45 @@ export class ArticleFormComponent {
   }
   sendForm() {
 
-   var  images:any= 
-      {
-          "image_name": "image1.jpg",
-          "blog_id": 1 // Assuming the ID of the article this image belongs to
-      }
 
-      // More images associated with the same article or other articles...
-  
+    console.log('fired');
 
+
+
+    // More images associated with the same article or other articles...
+
+
+
+
+    //image names extraction
+
+    // this.formData_CDN.forEach((image: any) => {
+    //   console.log(image.name, '<--');
+
+    //   images.push({ name: image.name, blog_id: this.blog_id })
+
+
+    // })
+
+
+    //tags extaction
+
+
+    console.log(this.tags?.nativeElement.value, '<---------------');
+
+
+    let tags: any[] = this.tags?.nativeElement.value.split(' ')
+
+console.log(this.pictures);
+
+
+let images:any[]=[];
+
+this.pictures.forEach((image:any)=>{
+
+  images.push({name:image.file.name,position:image.position})
+
+});
 
 
 
@@ -99,30 +148,23 @@ export class ArticleFormComponent {
     this.formData_backend.append('subtitle_1', this.subtitle_1?.nativeElement.value);
     this.formData_backend.append('body_1', this.body_1?.nativeElement.value);
     this.formData_backend.append('subtitle_2', this.subtitle_2?.nativeElement.value);
+    this.formData_backend.append('body_2', this.body_2?.nativeElement.value);
     this.formData_backend.append('caption', this.caption?.nativeElement.value);
-this.formData_backend.append('images',images)
+    this.formData_backend.append('tags', JSON.stringify(tags))
+    this.formData_backend.append('images', JSON.stringify(images))
 
-  
-  
-    this.pictures.forEach((pic) => {
-      this.formData_CDN.append('photos', pic);
-    })
+
+
+
     // 2 different requestes are made here:
-    // 1 : CDN to save images
+    //  1 : CDN to save images
     //  2 : Backend server to save article in DB
-    console.log(this.formData_CDN);
-    console.log(this.formData_backend);
+
     // CDN
-    // const upload = this.http.post("http://localhost:4400/new-article", this.formData_CDN, {
-    // });
-    // upload.subscribe(response => {
-    //   console.log(response);
 
-    
-    // });
 
-    function formDataToObject(formData:any) {
-      let object:any = {};
+    function formDataToObject(formData: any) {
+      let object: any = {};
       for (let [key, value] of formData.entries()) {
         object[key] = value;
       }
@@ -130,14 +172,105 @@ this.formData_backend.append('images',images)
     }
 
 
-    console.warn(formDataToObject(this.formData_backend));
-    
+
+
+
+
 
 
     const saveArticle = this.http.post("http://localhost:4300/new-article", formDataToObject(this.formData_backend), {
     });
-    saveArticle.subscribe(response => {
-      console.log(response);
+    saveArticle.subscribe((response_backend: any) => {
+
+
+
+      let images: any = [];  //images names stored in array
+
+
+
+
+      this.pictures.forEach((media) => {
+  
+      media.parent_id = response_backend.id
+
+    //  images.push({name:media.file.name, position:media.position})
+
+        this.formData_CDN.append('photos', media.file);
+  
+  
+      })
+
+
+
+
+
+      // this.formData_CDN.append('parent_id',response_backend.id)
+  
+
+      console.log(this.formData_CDN);
+      
+
+
+
+
+
+      // the newly created article is return in case of success:
+
+
+
+      // var formData_CDN_identified = new FormData()  // once the article id is returned a new formData is created with article ID's
+
+
+      // this.formData_CDN.forEach((file: any) => {
+
+
+
+      //   file.parent_id = response_backend.id
+      //   console.warn(file);
+        
+      //   console.log(file,'<---file');
+      //   console.log(response_backend);
+      //   console.log('---------------');
+        
+        
+
+
+
+      //   formData_CDN_identified.append('photos', file);
+      //   // article ID is associated with each of
+
+
+      //   // console.warn(img);
+      //   // img['blog_id'] = response_backend.id
+
+
+      // })
+
+      // formData_CDN_identified.append('article_id', response_backend.id);
+
+
+
+
+
+      console.warn(this.formData_CDN);
+      
+
+      const headers = {
+        parent_id:response_backend.id
+      }
+
+
+      const upload = this.http.post("http://localhost:4400/new-article", this.formData_CDN,{
+        headers:headers
+      });
+      upload.subscribe(response_CDN => {
+        console.log(response_CDN);
+
+
+      });
+
+
+
     });
   }
 }

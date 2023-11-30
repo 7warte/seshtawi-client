@@ -57,13 +57,45 @@ export class HomepageComponent implements OnInit {
 
     
    
-console.log(articles[0]);
-
-   
 
     articles.forEach((article:any,index:number)=>{
 
+
       
+
+      const coverImagePath = ()=>{
+        let coverImage = article.images.find((image:any)=>{  return image.position === "1_A" })
+
+
+        console.warn(coverImage);
+        
+
+        if(coverImage){
+
+           
+
+          return  `http://localhost:4400/${article.id}/${coverImage.name}`   
+
+        }else{
+          return  `http://localhost:4400/assets/icons/image.svg`  
+        }
+
+        
+      }
+
+
+      console.log(coverImagePath());
+      
+
+
+      
+      
+article.coverImagePath = coverImagePath()
+     
+
+
+
+
 
       if(counter === 14){
         counter =1
@@ -77,6 +109,9 @@ console.log(articles[0]);
       const formattedDate = `${timestamp.getUTCDate()}/${timestamp.getUTCMonth() + 1}/${timestamp.getUTCFullYear()}`;
 
       article.date = formattedDate
+
+      console.log(article);
+      
       this.articles.push(article)
 
  
