@@ -26,7 +26,8 @@
       
         .card-image{
             img{
-                filter: hue-rotate(60deg);
+                // filter: hue-rotate(20deg);
+                filter: sepia(1);
             }
         
         }

@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-article-form',
   templateUrl: './article-form.component.html',
@@ -10,6 +11,10 @@ export class ArticleFormComponent {
 
   blog_id: number = 1;
 
+
+  imagesPreview:any=[];
+
+  test:any
 
   @ViewChild('main_title') main_title: ElementRef | undefined;
   @ViewChild('subtitle_1') subtitle_1: ElementRef | undefined;
@@ -59,10 +64,10 @@ export class ArticleFormComponent {
       .values(this.validationObject.texts)
       .every(value => value === true);
     if (textsFilled === true && imagesFilled) {
-      // this.sendForm()   <--------------
+      this.sendForm()  
     }
     else {
-      this.sendForm()
+
       let falseProperties = []
       let texts = this.validationObject.texts
       let images = this.validationObject.images
@@ -80,6 +85,23 @@ export class ArticleFormComponent {
     }
   }
   onFileSelected(event: any, inputName: any) {
+
+
+    console.log(event.target.files);
+
+    //storing images preview
+    
+
+
+
+      const imageFile = event.target.files[0];
+
+      const reader = new FileReader()
+      reader.onload = (e)=>{  this.imagesPreview[inputName] = reader.result  }
+
+      reader.readAsDataURL(imageFile)
+
+
     // validation 
     this.validationObject.images[inputName] = true;
     const file: any = event.target.files[0];
@@ -95,6 +117,10 @@ export class ArticleFormComponent {
 
     console.log(this.pictures);
   }
+
+
+
+
   onTextInput(textAreaRef: any) {
     //validation
     this.validationObject.texts[textAreaRef.name] = true;
@@ -252,7 +278,6 @@ this.pictures.forEach((image:any)=>{
 
 
 
-      console.warn(this.formData_CDN);
       
 
       const headers = {
@@ -263,8 +288,15 @@ this.pictures.forEach((image:any)=>{
       const upload = this.http.post("http://localhost:4400/new-article", this.formData_CDN,{
         headers:headers
       });
-      upload.subscribe(response_CDN => {
+      upload
+      .pipe(map((response_CDN:any)=>{
+
+     location.reload()
+
+      }))
+      .subscribe(response_CDN => {
         console.log(response_CDN);
+
 
 
       });

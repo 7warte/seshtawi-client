@@ -106,6 +106,7 @@ article.coverImagePath = coverImagePath()
       let timestamp = new Date(article.timestamp);
 
       
+      
       const formattedDate = `${timestamp.getUTCDate()}/${timestamp.getUTCMonth() + 1}/${timestamp.getUTCFullYear()}`;
 
       article.date = formattedDate
