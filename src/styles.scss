@@ -16,13 +16,14 @@
 
 .component-container{
 
+   min-height: 100dvh;
     max-width: 100dvw;
     padding: 0 40px;
     font-family: 'Roboto Condensed', sans-serif;
     color: #3e3e3e;
 
     &.page{
-      max-width: 1440px;
+      max-width: 1040px;
     }
 }
 

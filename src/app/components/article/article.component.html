@@ -1,13 +1,65 @@
-<div *ngIf="articleData !== null" >
+<div
+class=" article-comp component-container page"
+*ngIf="articleData !== null" >
 
 
-    {{articleData.main_title}}
-    {{articleData.subtitle_1}}
-    {{articleData.body_1}}
-    {{articleData.subtitle_2}}
-    {{articleData.body_2}}
-    {{articleData.caption}}
+ 
 
+    <div class="article-container" >
+    <!-- cover image 1_A -->
+    <div class="cover-image 1_A" >
+        <img [src]="'http://localhost:4400/' + articleData.id + '/'+ articleMedia['1_A']"/>
+    </div> 
+    <!-- main title text -->
+    <div class="main-title">
+       <p>{{articleData.main_title}}</p> 
+    
+    </div>
+    <!--  first subtitle text -->
+    <div class="first-subtitle">
+        <p>    {{articleData.subtitle_1}} </p> 
+     
+     </div>
+
+     <div class="first-body">
+        <p>   {{articleData.body_1}} </p> 
+     
+     </div>
+
+     <div class="second-line-images-container">
+        <img [src]="'http://localhost:4400/' + articleData.id + '/'+ articleMedia['1_B']"/>
+        <img [src]="'http://localhost:4400/' + articleData.id + '/'+ articleMedia['2_B']"/>
+        <img [src]="'http://localhost:4400/' + articleData.id + '/'+ articleMedia['3_B']"/>
+
+        
+     </div>
+
+     
+     <div class="second-body">
+        <p>   {{articleData.body_2}} </p> 
+     
+     </div>
+
+     <div class="image-and-caption-container">
+
+        <img [src]="'http://localhost:4400/' + articleData.id + '/'+ articleMedia['1_C']"/>
+
+        <div class="caption">
+            <p>   {{articleData.caption}} </p> 
+         
+         </div>
+
+     </div>
+
+    
+
+    </div>
+
+
+    <div class="carousel">
+      <app-carousel [customOptions]="carouselSettings" ></app-carousel>
+  </div>
 
 
 </div>
+

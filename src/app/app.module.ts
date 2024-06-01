@@ -10,6 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { ArticleFormComponent } from './components/article-form/article-form.component';
 import { ArticleComponent } from './components/article/article.component';
+import { FooterComponent } from './components/ui/footer/footer.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +23,16 @@ import { ArticleComponent } from './components/article/article.component';
     NavbarComponent,
     HomepageComponent,
     ArticleFormComponent,
-    ArticleComponent
+    ArticleComponent,
+    FooterComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
