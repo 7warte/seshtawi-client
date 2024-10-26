@@ -10,6 +10,6 @@ app.get('/*', (req,res,next)=>{
 })
 
 app.listen(process.env.PORT || 8080,function(){
-    console.log("Node app is running at localhost:" + (process.env.PORT));
+    console.log("⚡ Node app is running at localhost:" + (process.env.PORT));
 
 })
