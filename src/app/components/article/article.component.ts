@@ -2,6 +2,7 @@ import { Component , OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -74,9 +75,12 @@ export class ArticleComponent implements OnInit {
     // /get_article/:id
 
 
+    
+
+
     const articleID = this.route.snapshot.paramMap.get('id')
 
-    const getArticle = this.http.get(`http://localhost:4300/get_article/${articleID}`);
+    const getArticle = this.http.get(`${environment.apiUrl_backend}get_article/${articleID}`);
 
     getArticle.subscribe((response:any)=>{
 

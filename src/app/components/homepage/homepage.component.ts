@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-homepage',
@@ -14,9 +15,16 @@ export class HomepageComponent implements OnInit {
 
   }
 
+
+
+
   ngOnInit(): void {
 
-    this.populateArticles()
+
+    
+    
+
+    // this.populateArticles()
   
    
 
@@ -33,7 +41,7 @@ export class HomepageComponent implements OnInit {
 
   populateArticles(){
 
-    this.http.get('http://localhost:4300/fetch_all').pipe(map((response:any)=>{
+    this.http.get(`${environment.apiUrl_backend}fetch_all`).pipe(map((response:any)=>{
       console.log(response);
 
       this.formatter(response);

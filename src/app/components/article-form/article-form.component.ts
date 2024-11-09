@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-article-form',
   templateUrl: './article-form.component.html',
@@ -204,7 +205,7 @@ this.pictures.forEach((image:any)=>{
 
 
 
-    const saveArticle = this.http.post("http://localhost:4300/new-article", formDataToObject(this.formData_backend), {
+    const saveArticle = this.http.post(`${environment.apiUrl_backend}/new-article`, formDataToObject(this.formData_backend), {
     });
     saveArticle.subscribe((response_backend: any) => {
 
