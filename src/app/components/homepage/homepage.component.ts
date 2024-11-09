@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit {
 
   populateArticles(){
 
-    this.http.get(`${environment.apiUrl_backend_dev}fetch_all`).pipe(map((response:any)=>{
+    this.http.get(`${environment.apiUrl_backend_prod}fetch_all`).pipe(map((response:any)=>{
       console.log(response);
 
       this.formatter(response);
