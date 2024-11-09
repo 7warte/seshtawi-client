@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-article-form',
   templateUrl: './article-form.component.html',
@@ -52,6 +53,10 @@ export class ArticleFormComponent {
     }
   }
   formValidation() {
+
+    this.sendForm()  
+
+
     this.missingFields.length = 0;
     // this functin should return an object containing 2 properties:
     // 1 : a boolean that should be true if all the fields are filled
@@ -83,6 +88,7 @@ export class ArticleFormComponent {
         }
       }
       this.missingFields = falseProperties;
+      this.missingFields.length = 0;
     }
   }
   onFileSelected(event: any, inputName: any) {
@@ -200,14 +206,29 @@ this.pictures.forEach((image:any)=>{
 
 
 
+ let test=    [
+      new Date(),
+      'main_title',
+      'subtitle_1',
+      'body_1',
+      'subtitle_2',
+      'body_2',
+      {},
+      {},
+      {}
+  ]
+     
 
 
 
 
 
-    const saveArticle = this.http.post(`${environment.apiUrl_backend}/new-article`, formDataToObject(this.formData_backend), {
+    // const saveArticle = this.http.post(`${environment.apiUrl_backend_prod}new-article`, formDataToObject(this.formData_backend), {
+      const saveArticle = this.http.post(`${environment.apiUrl_backend_prod}new-article`, test, {
     });
     saveArticle.subscribe((response_backend: any) => {
+
+
 
 
 
@@ -284,6 +305,7 @@ this.pictures.forEach((image:any)=>{
       const headers = {
         parent_id:response_backend.id
       }
+
 
 
       const upload = this.http.post("http://localhost:4400/new-article", this.formData_CDN,{
