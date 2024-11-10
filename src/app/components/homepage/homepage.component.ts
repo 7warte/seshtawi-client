@@ -73,9 +73,14 @@ export class HomepageComponent implements OnInit {
 
       const coverImagePath = ()=>{
 
+        console.log(article);
+        
 
-        let coverImage = article.images.find((image:any)=>{  return image.position === "1_A" })
 
+        // let coverImage = article.images.find((image:any)=>{  return image.position === "1_A" })
+
+
+        let coverImage = undefined
 
         console.warn(coverImage);
         
@@ -83,11 +88,11 @@ export class HomepageComponent implements OnInit {
         if(coverImage){
 
 
-          console.log(`${environment.cdn_url}/${article.id}/${coverImage.name}`);
+          console.log(`${environment.cdn_url}/${article.id}/${'coverImage.name'}`);
           
            
-
-          return  `${environment.cdn_url}/${article.id}/${coverImage.name}`   
+          return  `${environment.cdn_url}/${article.id}/${'coverImage.name'}`   
+          // return  `${environment.cdn_url}/${article.id}/${coverImage.name}`   
 
         }else{
           return  `http://localhost:4400/assets/icons/image.svg`  
