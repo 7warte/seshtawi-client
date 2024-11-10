@@ -75,27 +75,25 @@ export class HomepageComponent implements OnInit {
 
         console.log(article);
         
+        let coverImage = article.images?.find((image:any)=>{  return image.position === "1_A" })
 
 
-        // let coverImage = article.images.find((image:any)=>{  return image.position === "1_A" })
-
-
-        let coverImage = undefined
+        // let coverImage = undefined
 
         console.warn(coverImage);
         
 
         if(coverImage){
 
-
-          console.log(`${environment.cdn_url}/${article.id}/${'coverImage.name'}`);
-          
-           
-          return  `${environment.cdn_url}/${article.id}/${'coverImage.name'}`   
+          console.log(`${environment.cdn_url}/${article.id}/${coverImage.name}`);
+            
+          return  `${environment.cdn_url}/${article.id}/${coverImage.name}`   
           // return  `${environment.cdn_url}/${article.id}/${coverImage.name}`   
 
         }else{
-          return  `http://localhost:4400/assets/icons/image.svg`  
+          return  `${environment.cdn_url}assets/icons/image.svg`  
+
+          
         }
 
         
