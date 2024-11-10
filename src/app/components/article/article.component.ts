@@ -18,10 +18,16 @@ export class ArticleComponent implements OnInit {
     private http:HttpClient){
 
 
+
   }
+
+
+  API_url:string =  environment.cdn_url;
 
   articleData:any=null;
   articleMedia:any={};
+
+
 
   
 // slides = [
