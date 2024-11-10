@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit {
 
   populateArticles(){
 
-    this.http.get(`${environment.apiUrl_backend_prod}fetch_all`).pipe(map((response:any)=>{
+    this.http.get(`${environment.apiUrl_backend}fetch_all`).pipe(map((response:any)=>{
       console.log(response);
 
       this.formatter(response);
@@ -84,12 +84,8 @@ export class HomepageComponent implements OnInit {
         
 
         if(coverImage){
-
-          console.log(`${environment.cdn_url}/${article.id}/${coverImage.name}`);
-            
-          return  `${environment.cdn_url}/${article.id}/${coverImage.name}`   
-          // return  `${environment.cdn_url}/${article.id}/${coverImage.name}`   
-
+          console.log(`${environment.cdn_url}${article.id}/${coverImage.name}`);
+          return  `${environment.cdn_url}${article.id}/${coverImage.name}`   
         }else{
           return  `${environment.cdn_url}assets/icons/image.svg`  
 

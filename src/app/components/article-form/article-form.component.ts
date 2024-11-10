@@ -146,7 +146,7 @@ this.pictures.forEach((image:any)=>{
 //       {}
 //   ]
      
-    const saveArticle = this.http.post(`${environment.apiUrl_backend_prod}new-article`, formDataToObject(this.formData_backend), {
+    const saveArticle = this.http.post(`${environment.apiUrl_backend}new-article`, formDataToObject(this.formData_backend), {
   
     });
     saveArticle.subscribe((response_backend: any) => {

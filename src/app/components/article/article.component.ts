@@ -80,7 +80,7 @@ export class ArticleComponent implements OnInit {
 
     const articleID = this.route.snapshot.paramMap.get('id')
 
-    const getArticle = this.http.get(`${environment.apiUrl_backend_prod}get_article/${articleID}`);
+    const getArticle = this.http.get(`${environment.apiUrl_backend}get_article/${articleID}`);
 
     getArticle.subscribe((response:any)=>{
 
