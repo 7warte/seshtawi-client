@@ -9,6 +9,7 @@
 
     margin: 0;
     background-color: #163462;
+    position: relative;
   }
 
 
@@ -21,6 +22,10 @@
     padding: 0 40px;
     font-family: 'Roboto Condensed', sans-serif;
     color: #3e3e3e;
+
+    @media (max-width:799px) {
+      padding: 0;
+    }
 
     &.page{
       max-width: 1040px;

@@ -6,17 +6,12 @@
 [routerLink]="['article', article.id]"
  *ngFor="let article of articles; let i =index"
  [class]= "'article article-card-' + article.formatIndex"
- [ngStyle]="{
-    'border-radius':i ===0 
-    || i === 1 
-    || i ===2 ? '12px 12px 0 0':'0px' }">
+[ngClass] ="{'article-with-border-radius':i <=2}"
+>
 
 <div class="card-image" >
     <img 
-    [ngStyle]="{
-        'border-radius':i ===0 
-        || i === 1 
-        || i ===2 ? '11px 11px 0 0':'0px' }"
+    [ngClass] ="{'article-image-with-border-radius':i <=2}"
     
     src="{{article.coverImagePath}}" />
  

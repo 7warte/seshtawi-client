@@ -1,5 +1,11 @@
 .navbar-container {
 
+    @media (max-width:799px){
+            //.navbar-container
+        height:52px ;
+
+    }
+
     background-color: #0F1923;
     height: 84px;
     width: 100%;
@@ -16,6 +22,12 @@
         margin: auto;
 
         height: 100%;
+            @media (max-width:799px){
+
+                // .navbar-inner
+                padding: 0 24.7px
+
+            }
 
         .blog-name {
             color: #80FF00;
@@ -25,6 +37,10 @@
             font-weight: 400;
             line-height: normal;
             cursor: pointer;
+            @media (max-width:799px){
+                // .blog-name 
+                font-size: 27.8px;
+            }
         }
 
         .actions-container {
@@ -42,7 +58,9 @@
             }
 
             .search-bar {
-
+                @media (max-width:799px){
+                    display: none;
+                }
                 input[type='text'] {
                     cursor: pointer;
                     height: 25px;
