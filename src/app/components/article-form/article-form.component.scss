@@ -3,5 +3,105 @@
 .image-preview{
 
 
-    width: 200px;
+    width: 100%;
+}
+
+.submit-button{
+
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.article-container{
+  
+    max-width: 1200px;
+    padding: 30px;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    background-color: #E3E3E3;
+
+
+
+    .cover-image{
+
+        &.one_A{
+            border: 2px solid rgb(0, 192, 134);
+            border-radius: 20px 20px 0 0;
+            padding: 10px;
+            height: 229px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        margin-bottom: 10px;
+    }
+
+    .second-line-images-container{
+        display: flex;
+        border: 2px solid rgb(0, 192, 134);
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px 0;
+        .image-input{
+                padding: 10px;
+                flex: 1 1 33%;
+                max-width: 33%;
+                overflow: hidden;
+                border-right: 1px soliid #d9d9d9;
+        }
+    }
+
+
+
+
+
+
+
+
+
+    
+    .first-body,.first-subtitle,.main-title,.second-body,.tags{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        textarea{
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+ 
+
+}
+
+.image-and-caption-container{
+
+    margin: 10px 0;
+
+    display: flex;
+    .image-input{
+        max-width: 50%;
+        flex: 1 1 50%;
+        border: 2px solid rgb(0, 192, 134);
+
+    }
+
+    .caption{
+        
+        max-width: 50%;
+        width: 100%;
+        flex: 1 1 50%;
+        textarea{
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+    }
+
+}
+
+
+
+
 }

@@ -1,6 +1,6 @@
 
 
-
+<!-- 
 <h1>New Article</h1>
 <h2>Image 1A</h2>
 <input name="photos" type="file" class="file-input"
@@ -157,4 +157,190 @@ class="file-upload">
 
 </div>
 
-<button (click)="formValidation()" >SEND FORM</button>
+<button (click)="formValidation()" >SEND FORM</button> -->
+
+
+<div class="article-container" >
+       <!-- cover image 1_A -->
+       <div class="cover-image one_A" >
+              <label>1_A</label>
+              <input name="photos" type="file" class="file-input"
+              (change)="onFileSelected($event, '1_A')" #fileUpload>
+              <div 
+
+*ngIf="imagesPreview['1_A']" >
+
+       <img
+       class="image-preview"
+       [src]="imagesPreview['1_A']" >
+
+</div>
+       </div> 
+       <!-- main title text -->
+       <div class="main-title">
+              <textarea name="main_title" 
+               #main_title
+              (input)="onTextInput(main_title)"
+              placeholder="main title"
+              ></textarea>
+
+       
+       </div>
+       <!--  first subtitle text -->
+       <div class="first-subtitle">
+              <textarea
+              placeholder="first subtitle"
+              name="subtitle_1"  #subtitle_1 (input)="onTextInput(subtitle_1)" ></textarea>
+        
+        </div>
+   
+        <div class="first-body">
+              <textarea
+              placeholder="body  1"
+              name="body_1" 
+               #body_1 (input)="onTextInput(body_1)"></textarea>
+        
+        </div>
+   
+        <div class="second-line-images-container">
+        
+      <div class="image-input">
+        <label>1_b</label>
+        <input name="1B" type="file" class="file-input"
+       (change)="onFileSelected($event, '1_B')" #fileUpload>
+   
+       <p
+       *ngIf="imagesPreview['1_B']"
+       class="file-upload">
+          {{fileName }}
+       
+      </p>
+       <div 
+       
+       *ngIf="imagesPreview['1_B']" >
+              <img
+              class="image-preview"
+              [src]="imagesPreview['1_B']"
+              >
+       
+       </div>
+
+</div>
+
+
+<div class="image-input">
+       <label>2_b</label>
+       <input
+       name="2B" type="file" class="file-input"
+      (change)="onFileSelected($event, '2_B')" #fileUpload>
+      <p
+      *ngIf="!imagesPreview['2_B']"
+      class="file-upload">
+         {{fileName }}
+      
+</p>
+      <div 
+      
+      *ngIf="imagesPreview['2_B']" >
+             <img
+             class="image-preview"
+             [src]="imagesPreview['2_B']"
+             >
+      
+      </div>
+
+</div>
+
+
+<div class="image-input">
+       <label>3_b</label>
+       <input
+       name="3B" type="file" class="file-input"
+      (change)="onFileSelected($event, '3_B')" #fileUpload>
+      <div
+      *ngIf="!imagesPreview['3_B']"
+      class="file-upload">
+         {{fileName }}
+      
+      </div>
+      <div 
+      
+      *ngIf="imagesPreview['3_B']" >
+             <img
+             class="image-preview"
+             [src]="imagesPreview['3_B']"
+             >
+      
+      </div>
+
+</div>
+<!-- <img [src]="API_url + articleData.id + '/'+ articleMedia['2_B']"/>
+           <img [src]="API_url + articleData.id + '/'+ articleMedia['3_B']"/> -->
+   
+           
+        </div>
+   
+        
+        <div class="second-body">
+              <textarea
+              placeholder="Subtitle 2"
+              name="subtitle_2"  #subtitle_2 (input)="onTextInput(subtitle_2)" ></textarea>
+              
+              <textarea
+              placeholder="body 2"
+              name="body_2"  #body_2 (input)="onTextInput(body_2)"></textarea>
+        
+        </div>
+   
+        <div class="image-and-caption-container">
+   
+           <!-- <img [src]="API_url + articleData.id + '/'+ articleMedia['1_C']"/> -->
+
+ <div class="image-input">
+
+
+
+<input name="2B" type="file" class="file-input"
+       (change)="onFileSelected($event, '1_C')" #fileUpload>
+       <div
+       *ngIf="!imagesPreview['1_C']"
+       class="file-upload">
+          {{fileName }}
+       
+       </div>
+          
+       <div 
+       
+       *ngIf="imagesPreview['1_C']" >
+       
+              <img
+              class="image-preview"
+              [src]="imagesPreview['1_C']" >
+       
+       </div>
+
+ </div>
+   
+           <div class="caption">
+
+              <textarea placeholder="caption" name="caption"  #caption (input)="onTextInput(caption)"></textarea>
+
+               <!-- <p>   {{articleData.caption}} </p>  -->
+            
+            </div>
+
+
+      
+
+        </div>
+
+
+        <div class="tags">
+              <textarea placeholder="tags" name="tags"  #tags (input)="onTextInput(tags)" ></textarea>
+  
+  
+              </div>
+       
+              <button class="submit-button" (click)="formValidation()" >SEND FORM</button> 
+
+       </div>
