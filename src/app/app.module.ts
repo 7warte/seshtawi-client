@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { DocumentationComponent } from './components/documentation/documentation.component';
 import { NavbarComponent } from './components/ui/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 import { importProvidersFrom } from '@angular/core';
 import { ArticleFormComponent } from './components/article-form/article-form.component';
@@ -14,8 +14,7 @@ import { FooterComponent } from './components/ui/footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,11 +29,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

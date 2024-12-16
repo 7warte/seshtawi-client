@@ -69,8 +69,6 @@ export class HomepageComponent implements OnInit {
     articles.forEach((article:any,index:number)=>{
 
 
-      
-
       const coverImagePath = ()=>{
 
         console.log(article);
@@ -84,8 +82,9 @@ export class HomepageComponent implements OnInit {
         
 
         if(coverImage){
-          console.log(`${environment.cdn_url}${article.id}/${coverImage.name}`);
-          return  `${environment.cdn_url}${article.id}/${coverImage.name}`   
+
+          return `https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/${coverImage.name}`
+          // return  coverImage.location   
         }else{
           return  `${environment.cdn_url}assets/icons/image.svg`  
 

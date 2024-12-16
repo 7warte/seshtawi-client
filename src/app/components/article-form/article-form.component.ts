@@ -2,29 +2,68 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-article-form',
   templateUrl: './article-form.component.html',
-  styleUrls: ['./article-form.component.scss']
+  styleUrls: ['./article-form.component.scss'],
+
 })
 export class ArticleFormComponent {
   blog_id: number = 1;
   imagesPreview:any=[];
   test:any
-  @ViewChild('main_title') main_title: ElementRef | undefined;
-  @ViewChild('subtitle_1') subtitle_1: ElementRef | undefined;
-  @ViewChild('body_1') body_1: ElementRef | undefined;
-  @ViewChild('subtitle_2') subtitle_2: ElementRef | undefined;
-  @ViewChild('body_2') body_2: ElementRef | undefined;
-  @ViewChild('caption') caption: ElementRef | undefined;
-  @ViewChild('tags') tags: ElementRef | undefined;
+  @ViewChild('main_title') main_title: ElementRef | any;
+  @ViewChild('subtitle_1') subtitle_1: ElementRef | any;
+  @ViewChild('body_1') body_1: ElementRef | any;
+  @ViewChild('subtitle_2') subtitle_2: ElementRef | any;
+  @ViewChild('body_2') body_2: ElementRef | any;
+  @ViewChild('caption') caption: ElementRef | any;
+  @ViewChild('tags') tags: ElementRef | any;
   fileName = '';
   missingFields: any[] = [];
-  formData_CDN = new FormData();
-  formData_backend = new FormData()
-  pictures: any[] = []
+  // formData_CDN = new FormData();
+
+  pictures: any = []
   pictures_info:any[]=[];
-  constructor(private http: HttpClient) { }
+
+
+
+
+  articleForm:any = new FormGroup({
+    main_title : new FormControl('test'),
+    subtitle_1: new FormControl('subtitle_1'),
+    body_1:new FormControl('body_1'),
+    subtitle_2: new FormControl('subtitle_2'),
+    body_2: new FormControl('body_2'),
+    caption: new FormControl('caption'),
+    tags: new FormControl('tags'),
+  
+  })
+
+
+  constructor(private http: HttpClient) {
+
+    
+
+   }
+
+
+   ngAfterViewInit(){
+    this.main_title.nativeElement.value = 'Testing main';
+    this.subtitle_1.nativeElement.value = 'Testing sub1';
+    this.body_1.nativeElement.value ='Testing body1';
+    this.subtitle_2.nativeElement.value = 'Testing sub2';
+    this.body_2.nativeElement.value = 'Testing body 2';
+    this.caption.nativeElement.value = 'Testing caption';
+    this.tags.nativeElement.value = 'test, example'
+
+    
+   }
+
+
+   
+
   validationObject: any = {
     images: {
       "1_A": false,
@@ -44,6 +83,9 @@ export class ArticleFormComponent {
     }
   }
   formValidation() {
+
+
+    return this.sendForm()  
  
     this.missingFields.length = 0;
     // this functin should return an object containing 2 properties:
@@ -99,8 +141,31 @@ export class ArticleFormComponent {
     //validation
     this.validationObject.texts[textAreaRef.name] = true;
   }
+
+
+
+
   sendForm() {
-    console.log('fired');
+
+
+    let passcheck = window.prompt('hi');
+
+    if(passcheck!=='b4rabb3ro-71070!'){
+      return window.alert('Something went wrong')
+    }
+    
+
+
+  
+    // console.log(this.articleForm);
+    // console.log(this.pictures);
+
+
+    let formData_backend = new FormData();
+    
+    
+
+
     // More images associated with the same article or other articles...
     //image names extraction
     // this.formData_CDN.forEach((image: any) => {
@@ -108,60 +173,50 @@ export class ArticleFormComponent {
     //   images.push({ name: image.name, blog_id: this.blog_id })
     // })
     //tags extaction
-    console.log(this.tags?.nativeElement.value, '<---------------');
     let tags: any[] = this.tags?.nativeElement.value.split(' ')
 console.log(this.pictures);
 let images:any[]=[];
 this.pictures.forEach((image:any)=>{
   images.push({name:image.file.name,position:image.position})
+  formData_backend.append(image.file.name, image)
 });
-    this.formData_backend.append('main_title', this.main_title?.nativeElement.value);
-    this.formData_backend.append('subtitle_1', this.subtitle_1?.nativeElement.value);
-    this.formData_backend.append('body_1', this.body_1?.nativeElement.value);
-    this.formData_backend.append('subtitle_2', this.subtitle_2?.nativeElement.value);
-    this.formData_backend.append('body_2', this.body_2?.nativeElement.value);
-    this.formData_backend.append('caption', this.caption?.nativeElement.value);
-    this.formData_backend.append('tags', JSON.stringify(tags))
-    this.formData_backend.append('images', JSON.stringify(images))
-    // 2 different requestes are made here:
-    //  1 : CDN to save images
-    //  2 : Backend server to save article in DB
-    // CDN
-    function formDataToObject(formData: any) {
-      let object: any = {};
-      for (let [key, value] of formData.entries()) {
-        object[key] = value;
-      }
-      return object;
-    }
-//  let test=    [
-//       new Date(),
-//       'main_title',
-//       'subtitle_1',
-//       'body_1',
-//       'subtitle_2',
-//       'body_2',
-//       {},
-//       {},
-//       {}
-//   ]
-     
-    const saveArticle = this.http.post(`${environment.apiUrl_backend}new-article`, formDataToObject(this.formData_backend), {
+    formData_backend.append('main_title', this.main_title?.nativeElement.value);
+     formData_backend.append('subtitle_1', this.subtitle_1?.nativeElement.value);
+    formData_backend.append('body_1', this.body_1?.nativeElement.value);
+    formData_backend.append('subtitle_2', this.subtitle_2?.nativeElement.value);
+    formData_backend.append('body_2', this.body_2?.nativeElement.value);
+    formData_backend.append('caption', this.caption?.nativeElement.value);
+    formData_backend.append('tags', JSON.stringify(tags))
+    formData_backend.append('images', JSON.stringify(images))
+
+
+this.pictures.forEach((image:any)=>{
+
+  formData_backend.append(image.file.position, image.file)
+});
+
+
+    const saveArticle = this.http.post(`${environment.apiUrl_backend}new-article`, formData_backend, {
   
     });
     saveArticle.subscribe((response_backend: any) => {
-      let images: any = [];  //images names stored in array
-      this.pictures.forEach((media) => {
+       console.log(response_backend);
+      
+      let images: any = [];  
+      
+      
+      //images names stored in array
+    //   this.pictures.forEach((media:any) => {
   
-      media.parent_id = response_backend.id
-    //  images.push({name:media.file.name, position:media.position})
-        this.formData_CDN.append('photos', media.file);
+    //   media.parent_id = response_backend.id
+    // //  images.push({name:media.file.name, position:media.position})
+    //     // this.formData_CDN.append('photos', media.file);
   
   
-      })
+    //   })
       // this.formData_CDN.append('parent_id',response_backend.id)
   
-      console.log(this.formData_CDN);
+      // console.log(this.formData_CDN);
       
       // the newly created article is return in case of success:
       // var formData_CDN_identified = new FormData()  // once the article id is returned a new formData is created with article ID's
@@ -181,19 +236,46 @@ this.pictures.forEach((image:any)=>{
       // })
       // formData_CDN_identified.append('article_id', response_backend.id);
       
-      const headers = {
-        parent_id:response_backend.id
-      }
-      const upload = this.http.post(`${environment.cdn_url}new-article`, this.formData_CDN,{
-        headers:headers
-      });
-      upload
-      .pipe(map((response_CDN:any)=>{
-     location.reload()
-      }))
-      .subscribe(response_CDN => {
-        console.log(response_CDN);
-      });
+    //   const headers = {
+    //     parent_id:response_backend.id
+    //   }
+    //   const upload = this.http.post(`${environment.cdn_url}new-article`, this.formData_CDN,{
+    //     headers:headers
+    //   });
+    //   upload
+    //   .pipe(map((response_CDN:any)=>{
+    //  location.reload()
+    //   }))
+    //   .subscribe(response_CDN => {
+    //     console.log(response_CDN);
+    //   });
     });
   }
 }
+
+
+//  articleForm = new FormGroup({
+//   main_title : new FormControl('test'),
+//   subtitle_1: new FormControl('subtitle_1'),
+//   body_1:new FormControl('body_1'),
+//   subtitle_2: new FormControl('subtitle_2'),
+//   body_2: new FormControl('body_2'),
+//   caption: new FormControl('caption'),
+//   tags: new FormControl('tags')
+
+// })
+
+// @ViewChild('main_title') main_title: ElementRef | any;
+// @ViewChild('subtitle_1') subtitle_1: ElementRef | any;
+// @ViewChild('body_1') body_1: ElementRef | any;
+// @ViewChild('subtitle_2') subtitle_2: ElementRef | any;
+// @ViewChild('body_2') body_2: ElementRef | any;
+// @ViewChild('caption') caption: ElementRef | any;
+// @ViewChild('tags') tags: ElementRef | any;
+
+// sendForm() {
+
+
+
+// }
+

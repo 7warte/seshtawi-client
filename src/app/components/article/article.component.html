@@ -8,7 +8,7 @@ class=" article-comp component-container page"
     <div class="article-container" >
     <!-- cover image 1_A -->
     <div class="cover-image 1_A" >
-        <img [src]="API_url + articleData.id + '/'+ articleMedia['1_A']"/>
+        <img [src]="this.articleData.media['1_A']"/>
     </div> 
     <!-- main title text -->
     <div class="main-title">
@@ -25,11 +25,11 @@ class=" article-comp component-container page"
         <p>   {{articleData.body_1}} </p> 
      
      </div>
-
+     <!-- https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev -->
      <div class="second-line-images-container">
-        <img [src]="API_url + articleData.id + '/'+ articleMedia['1_B']"/>
-        <img [src]="API_url + articleData.id + '/'+ articleMedia['2_B']"/>
-        <img [src]="API_url + articleData.id + '/'+ articleMedia['3_B']"/>
+        <img [src]="this.articleData.media['1_B']"/>
+        <img [src]="this.articleData.media['2_B']"/>
+        <img [src]="this.articleData.media['3_B']"/>
 
         
      </div>
@@ -42,7 +42,7 @@ class=" article-comp component-container page"
 
      <div class="image-and-caption-container">
 
-        <img [src]="API_url + articleData.id + '/'+ articleMedia['1_C']"/>
+        <img [src]="this.articleData.media['1_C']"/>
 
         <div class="caption">
             <p>   {{articleData.caption}} </p> 

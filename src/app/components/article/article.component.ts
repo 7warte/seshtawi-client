@@ -96,12 +96,21 @@ export class ArticleComponent implements OnInit {
 
       this.articleData = response;
 
-      response.images.forEach((img:{name:string, position:string})=>{
+      // response.images.forEach((img:{name:string, position:string})=>{
+      //   this.articleMedia[img.position] = img.name
+      // })
 
-        this.articleMedia[img.position] = img.name
+      let media:any =  {}
+   response.images.forEach((img:{name:string, position:string})=>{
+
+    media[img.position]=`https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/${img.name}`
+        
+      // return {[img.position]:`https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/${img.name}`}
 
       })
 
+      console.log(media);
+      this.articleData.media = media;
       
 
 
