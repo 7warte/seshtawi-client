@@ -148,11 +148,11 @@ export class ArticleFormComponent {
   sendForm() {
 
 
-    let passcheck = window.prompt('hi');
+    // let passcheck = window.prompt('...');
 
-    if(passcheck!=='b4rabb3ro-71070!'){
-      return window.alert('Something went wrong')
-    }
+    // if(passcheck!=='b4rabb3ro-71070!'){
+    //   return window.alert('Something went wrong')
+    // }
     
 
 
@@ -201,8 +201,12 @@ this.pictures.forEach((image:any)=>{
     });
     saveArticle.subscribe((response_backend: any) => {
        console.log(response_backend);
+
+       if(response_backend.id ===null){
+        window.alert(response_backend.message)
+       }
       
-      let images: any = [];  
+      // let images: any = [];  
       
       
       //images names stored in array
