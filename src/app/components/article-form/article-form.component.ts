@@ -148,11 +148,11 @@ export class ArticleFormComponent {
   sendForm() {
 
 
-    // let passcheck = window.prompt('...');
+    let passcheck = window.prompt('...');
 
-    // if(passcheck!=='b4rabb3ro-71070!'){
-    //   return window.alert('Something went wrong')
-    // }
+    if(passcheck!=='b4rabb3ro-71070!'){
+      return window.alert('Something went wrong')
+    }
     
 
 
