@@ -2,7 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, last, distinctUntilChanged, Subject } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,7 +14,7 @@ import { FormControl } from '@angular/forms';
 
 export class NavbarComponent {
 
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient, private router:Router){
 
     console.log(this.searchInput);
     
@@ -45,6 +46,14 @@ export class NavbarComponent {
   searchInput = new Subject<string>();
 
 
+
+  onSearchResultClick(value:any){
+
+    this.searchBannerIsOpen =false;
+
+    this.router.navigate(['/article', value.id]);
+    
+  }
 
 
   onSearchInpunt(){

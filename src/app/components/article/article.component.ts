@@ -18,7 +18,6 @@ export class ArticleComponent implements OnInit {
     private http:HttpClient){
 
 
-
   }
 
 
@@ -78,13 +77,18 @@ export class ArticleComponent implements OnInit {
 
   
   ngOnInit(): void {
-    // /get_article/:id
+
+      this.route.params.subscribe((val:any) => {
+        this.populateArticle(val.id)
+        
+      })
 
 
-    
 
+  }
 
-    const articleID = this.route.snapshot.paramMap.get('id')
+  populateArticle(articleID:any){
+
 
     const getArticle = this.http.get(`${environment.apiUrl_backend}get_article/${articleID}`);
 
@@ -116,8 +120,10 @@ export class ArticleComponent implements OnInit {
 
     })
 
-
   }
+
+
+  
 
 
 }

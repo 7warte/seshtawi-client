@@ -37,8 +37,9 @@ class="navbar-container">
 class="search-banner">
    
 <div class="result" *ngFor="let result of searchResults" >
-
-   <p>{{result.main_title}}</p> 
+   <div (click)="onSearchResultClick(result)">
+    <p>{{result.main_title}}</p> 
+   </div>
     
 </div>
 
