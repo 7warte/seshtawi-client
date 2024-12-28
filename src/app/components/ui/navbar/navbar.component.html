@@ -19,11 +19,27 @@ class="navbar-container">
             <img class="magnifier" src="assets/icons/magnifier.svg"  />
 
             <div class="search-bar">
-                <input type="text"/>
+                <input
+                placeholder="Search..."
+                (input)="onSearchInputChange(searchBar.value)"
+                #searchBar type="text"/>
             </div>
         </div>
     </div>
 
 
+
+</div>
+
+
+<div 
+[ngClass]="{open:this.searchBannerIsOpen===true}"
+class="search-banner">
+   
+<div class="result" *ngFor="let result of searchResults" >
+
+   <p>{{result.main_title}}</p> 
+    
+</div>
 
 </div>

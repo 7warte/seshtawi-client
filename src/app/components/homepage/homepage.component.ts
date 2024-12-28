@@ -71,14 +71,12 @@ export class HomepageComponent implements OnInit {
 
       const coverImagePath = ()=>{
 
-        console.log(article);
         
         let coverImage = article.images?.find((image:any)=>{  return image.position === "1_A" })
 
 
         // let coverImage = undefined
 
-        console.warn(coverImage);
         
 
         if(coverImage){
@@ -93,10 +91,6 @@ export class HomepageComponent implements OnInit {
 
         
       }
-
-
-      console.log(coverImagePath());
-      
 
 
       
@@ -121,8 +115,6 @@ article.coverImagePath = coverImagePath()
       const formattedDate = `${timestamp.getUTCDate()}/${timestamp.getUTCMonth() + 1}/${timestamp.getUTCFullYear()}`;
 
       article.date = formattedDate
-
-      console.log(article);
       
       this.articles.push(article)
 
@@ -136,9 +128,6 @@ article.coverImagePath = coverImagePath()
       
     })
 
-
-    console.log(articles);
-    
 
 
 
