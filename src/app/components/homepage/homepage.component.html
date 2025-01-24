@@ -1,5 +1,6 @@
-<div class="component-container page homepage-comp">
-
+<div
+*ngIf="articles.length !==0"
+class="component-container page homepage-comp">
 
 
 <div
@@ -27,9 +28,24 @@
     
     <span>{{article.body_1}}</span>  
   </div>
+</div>
+</div>
 
- 
+<div
+*ngIf="articles.length === 0"
+class="loading-grid">
+  <div
+ *ngFor="let article of loadingPlaceholdersQty; let i =index"
+ [class]= "'placeholder article-placeholder-' + i"
+[ngClass] ="{'article-with-border-radius':i <=2}"
+>
+
+
+
+
 
 </div>
+
+
 
 </div>

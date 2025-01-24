@@ -16,16 +16,17 @@ export class HomepageComponent implements OnInit {
   }
 
 
+  loadingPlaceholdersQty = Array.from(Array(20))
+
 
 
   ngOnInit(): void {
 
 
-    
-    
 
     this.populateArticles()
   
+   console.log(this.loadingPlaceholdersQty);
    
 
 

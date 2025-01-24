@@ -10,19 +10,26 @@ class="navbar-container">
 
     </div>
          <div class="actions-container">
-            <img class="menu" src="assets/icons/burger-menu-green.svg"  />
+            <img 
+            (click)="toggleMenuBanner()"
+            class="menu" src="assets/icons/burger-menu-green.svg"  />
 
             <img class="avatar" src="assets/icons/user-green.svg"  />
 
-            <img class="bookmark" src="assets/icons/bookmark-green.svg"  />
+            <img 
+            class="bookmark" src="assets/icons/bookmark-green.svg"  />
             
-            <img class="magnifier" src="assets/icons/magnifier.svg"  />
-
+            <img
+            (click)="toggleMobileSearch()"
+            class="magnifier" src="assets/icons/magnifier.svg"  />
             <div class="search-bar">
                 <input
+                [value]="searchInput.getValue()"
                 placeholder="Search..."
-                (input)="onSearchInputChange(searchBar.value)"
-                #searchBar type="text"/>
+                (input)="onSearchInputChange('desktop')"
+                #searchBarDesktop
+                
+                type="text"/>
             </div>
         </div>
     </div>
@@ -35,6 +42,20 @@ class="navbar-container">
 <div 
 [ngClass]="{open:this.searchBannerIsOpen===true}"
 class="search-banner">
+<div class="mobile-search-header">
+    <input
+    [value]="searchInput.getValue()"
+    placeholder="Search..."
+    (input)="onSearchInputChange('mobile')"
+    #searchBarMobile type="text"/>
+    <div (click)="toggleMobileSearch()"  >
+        <img
+        class="close-icon"
+        src="assets/icons/close-icon.svg" />
+    </div>
+</div>
+
+
    
 <div class="result" *ngFor="let result of searchResults" >
    <div (click)="onSearchResultClick(result)">
@@ -42,5 +63,42 @@ class="search-banner">
    </div>
     
 </div>
+
+
+
+
+
+
+</div>
+
+
+<div 
+[ngClass]="{open:this.menuBannerIsOpen===true}"
+class="menu-banner">
+<div class="menu-header">
+    <h1>Menu</h1>
+    <div (click)="toggleMenuBanner()"  >
+        <img
+        class="close-icon"
+        src="assets/icons/close-icon.svg" />
+    </div>
+</div>
+
+
+<div>
+<div 
+class="menu-item"
+*ngFor="let menuItem of menuItems">
+<a 
+(click)="toggleMenuBanner()"
+[routerLink]="[menuItem.route]" routerLinkActive="is-active">  
+    <h3>
+        {{menuItem.name}}
+    </h3>
+</a>
+</div>
+
+</div>
+
 
 </div>

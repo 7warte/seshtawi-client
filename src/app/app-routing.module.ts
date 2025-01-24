@@ -4,6 +4,7 @@ import { DocumentationComponent } from './components/documentation/documentation
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ArticleFormComponent } from './components/article-form/article-form.component';
 import { ArticleComponent } from './components/article/article.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: '', component: HomepageComponent }
 ,
 { path: 'new-article', component: ArticleFormComponent },
-{ path: 'article/:id', component: ArticleComponent }
+{ path: 'article/:id', component: ArticleComponent },
+{ path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
