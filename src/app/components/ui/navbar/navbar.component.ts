@@ -60,8 +60,8 @@ export class NavbarComponent {
 
   menuItems: Array<{name:string,route:string}> = 
   [
-    {name:'test',route:'/about'},
-    {name:'test2',route:'test'}
+    {name:'About me',route:''},
+    {name:'Articles',route:'articles'}
   
   ]
 

@@ -9,11 +9,11 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: 'docs', component: DocumentationComponent },
-  { path: '', component: HomepageComponent }
+  { path: '', component: AboutComponent }
 ,
 { path: 'new-article', component: ArticleFormComponent },
 { path: 'article/:id', component: ArticleComponent },
-{ path: 'about', component: AboutComponent }
+{ path: 'articles', component: HomepageComponent }
 ];
 
 @NgModule({

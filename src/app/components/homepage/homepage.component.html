@@ -4,7 +4,7 @@ class="component-container page homepage-comp">
 
 
 <div
-[routerLink]="['article', article.id]"
+[routerLink]="['/article', article.id]"
  *ngFor="let article of articles; let i =index"
  [class]= "'article article-card-' + article.formatIndex"
 [ngClass] ="{'article-with-border-radius':i <=2}"
