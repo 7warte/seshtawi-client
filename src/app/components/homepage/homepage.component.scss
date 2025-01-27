@@ -154,15 +154,16 @@ gap: 15px;
 
 
 .loading-grid{
-
+  max-width: 1040px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: auto;
+  margin: auto;
   gap: 6px;
   margin-top: 36px;
   animation: rotatingBorder;
   animation-duration:1s;
   animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   @media (max-width:799px){
     // .homepage-comp
 display: flex;
@@ -181,7 +182,7 @@ gap: 15px;
     border: 3px solid;
 
     border-color: transparent;
-    animation: loadingBackground 5.4s infinite linear; /* Apply the animation */
+    animation: loadingBackground 1.4s infinite linear; /* Apply the animation */
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(9,9,121,0.3) 35%, rgba(2,0,36,0.3) 0%); /* Initial gradient */
     background-size: 200% 100%; /* Stretch the gradient so it can move */
 
@@ -190,6 +191,7 @@ gap: 15px;
 
   @keyframes loadingBackground {
     0% {
+     
       background-position: 200% 0; /* Start offscreen to the right */
     }
     100% {
