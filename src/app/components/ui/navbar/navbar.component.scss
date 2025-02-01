@@ -220,7 +220,7 @@
 
     font-family: "Quicksand", sans-serif;
   
-    h3{
+    h3,a{
         color: white;
         text-decoration: none;
     }
@@ -241,6 +241,7 @@
     .wrapper{
         max-width: 1040px;
         margin: auto;
+        padding: 20px;
     }
 
 
