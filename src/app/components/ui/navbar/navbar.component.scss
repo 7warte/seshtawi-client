@@ -68,10 +68,14 @@
 
 
 .navbar-container {
+    z-index: 5;
+    position: sticky;
+    top: 0;
     background-color: var(--primary-dark);
     height: 84px;
     width: 100%;
     .navbar-inner {
+    font-family: "Quicksand", sans-serif;
 
         display: flex;
         flex-direction: row;
@@ -82,8 +86,20 @@
         margin: auto;
         height: 100%;
         .blog-name {
-            color: #ffffff;
+            display: flex;
+            align-items: self-end;
+            gap: 3px;
+
+
+            img{
+                height: 20px;
+            }
+
+            color: white;
             font-family: 'Roboto Condensed';
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
+
             font-size: 7px;
             font-style: normal;
             font-weight: 400;
@@ -92,7 +108,7 @@
             .main{
                 // color: red;
                 font-size:19px;
-                text-transform: full-width;
+                // text-transform: full-width;
             }
             .secondary{
  
@@ -199,18 +215,33 @@
 }
 
 .menu-banner{
-    background-color: #0F1923;
-    box-shadow: inset 0 0 70px #000000;
+
+
+
+    font-family: "Quicksand", sans-serif;
+  
+    h3{
+        color: white;
+        text-decoration: none;
+    }
+
+    background-color:  var(--primary-dark);
+    box-shadow: inset 0 0 70px var(--primary-dark);
     position: fixed;
     padding: 16px;
-
-    transform: translate(-100%);
+    transform: translateY(-100%);
     transition: all 0.4s;
-    top: 0px;
+    bottom: 0px;
     right: 0;
     left: 0;
     box-sizing: border-box;
-    height:100vh;
+    height:calc(100vh - 84px);
+
+
+    .wrapper{
+        max-width: 1040px;
+        margin: auto;
+    }
 
 
     .menu-header{
@@ -218,7 +249,7 @@
         h1{
             padding: 0;
             margin: 0;
-            color:#80ff00;
+            color: white;
             font-weight: 400;
         }
         display: flex;
@@ -234,9 +265,10 @@
     .menu-item{
         color: white;
     }
-    
+    opacity: 0;
     &.open{
-        transform: translate(0%);
+        opacity: 1;
+        transform: translateY(0%);
         z-index: 3;
     }
     .result{

@@ -6,7 +6,8 @@ class="navbar-container">
         <div
         [routerLink]="['']"
         class="blog-name" >
-        <span class="main">Seshtawi Brothers</span>
+        <img src="assets/icons/signature.svg" />
+        <span class="main">Seshtawi Brothers Blog</span>
 
     </div>
          <div class="actions-container">
@@ -14,7 +15,7 @@ class="navbar-container">
             (click)="toggleMenuBanner()"
             class="menu" src="assets/icons/burger-menu.svg"  />
 
-            <img class="avatar" src="assets/icons/user.svg"  /> 
+            <!-- <img class="avatar" src="assets/icons/user.svg"  />  -->
 
             <!-- <img 
             class="bookmark" src="assets/icons/bookmark.svg"  /> -->
@@ -75,6 +76,7 @@ class="search-banner">
 <div 
 [ngClass]="{open:this.menuBannerIsOpen===true}"
 class="menu-banner">
+<div class="wrapper">
 <div class="menu-header">
     <h1>Menu</h1>
     <div (click)="toggleMenuBanner()"  >
@@ -99,6 +101,6 @@ class="menu-item"
 </div>
 
 </div>
-
+</div>
 
 </div>
