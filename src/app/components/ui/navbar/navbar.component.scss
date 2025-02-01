@@ -68,7 +68,7 @@
 
 
 .navbar-container {
-    background-color: #0F1923;
+    background-color: var(--primary-dark);
     height: 84px;
     width: 100%;
     .navbar-inner {
@@ -82,7 +82,7 @@
         margin: auto;
         height: 100%;
         .blog-name {
-            color: #80FF00;
+            color: #ffffff;
             font-family: 'Roboto Condensed';
             font-size: 7px;
             font-style: normal;
@@ -120,7 +120,7 @@
                 input[type='text'] {
                     cursor: pointer;
                     height: 25px;
-                    background-color: #80FF00;
+                    background-color: #ffffff;
                     border-radius: 6px;
                     border: none;
                     transition: all 0.4s;
@@ -132,7 +132,7 @@
 
 
                 input:focus {
-                    background-color: #FFD700;
+                    background-color: var(--secondary);
                     outline: none;
 
                 }
@@ -148,13 +148,12 @@
         position: sticky;
 
         .navbar-inner {
-            padding: 0 5px;
+            padding: 0 20px;
             .blog-name {
                 .main {
                     font-size: 14px;
                 }
             }
-
             .actions-container {
                 .avatar,.bookmark,.search-bar{
                     display: none;
@@ -163,7 +162,6 @@
                 .menu{
                     padding-right: 20px;
                 }
-
             }
         }
     }

@@ -1,0 +1,67 @@
+
+
+/* PRIMARY */
+
+@property --primary {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #5B6D92;
+  }
+
+@property --primary-light {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #7C8AA8;
+  }
+
+
+
+@property --primary-dark {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #495775;
+  }
+
+
+  @property --secondary {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #9B8F9C;
+  }
+
+@property --secondary-light {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #AFA5B0;
+  }
+
+
+
+@property --secondary-dark {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #7C727D;
+  }
+
+
+  @property --surface{
+    syntax: "<color>";
+    inherits: false;
+    initial-value:#ffffff;
+  }
+
+  @property --background{
+    syntax: "<color>";
+    inherits: false;
+    initial-value:#CBDDE2;
+  }
+
+
+
+  @property --error{
+    syntax: "<color>";
+    inherits: false;
+    initial-value:#A4303F;
+  }
+
+
