@@ -15,6 +15,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
+import { LoadingSpinnerComponent } from "./components/ui/loading-spinner/loading-spinner.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +30,11 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     CarouselModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    LoadingSpinnerComponent
+],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })

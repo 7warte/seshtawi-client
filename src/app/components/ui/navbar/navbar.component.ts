@@ -182,7 +182,7 @@ export class NavbarComponent {
   onSearch(value: any) {
 
 
-    this.searchIsLoading = true;
+     this.searchIsLoading = true;
 
 
     // this.searchBannerIsOpen = this.searchBar.nativeElement.value.length >0 ? true:false;

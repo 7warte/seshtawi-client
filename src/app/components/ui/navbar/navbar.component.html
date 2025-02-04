@@ -7,15 +7,10 @@ class="navbar-container">
         [routerLink]="['']"
         class="blog-name" >
         <img src="assets/icons/signature.svg" />
-        <span class="main">Seshtawi Brothers Blog</span>
+        <span class="main">Seshtawi Blog</span>
 
     </div>
          <div class="actions-container">
-           <!-- <img 
-            (click)="toggleMenuBanner()"
-            class="menu" src="assets/icons/burger-menu.svg"  /> -->
-
-
 
 
 
@@ -42,8 +37,9 @@ class="navbar-container">
                 
             <div class="search-bar">
                 <input
+                initial-scale=1, maximum-scale=1
                 [value]="searchInput.getValue()"
-                placeholder="Search..."
+                placeholder="Search article"
                 (input)="onSearchInputChange('desktop')"
                 #searchBarDesktop
                 
@@ -74,13 +70,39 @@ class="search-banner">
 </div>
 
 
+<div 
+[ngClass]="{'hide':searchResults.length === 0 || searchIsLoading===true}"
+class="result" *ngFor="let result of searchResults" >
+  
+
+   <div
    
-<div class="result" *ngFor="let result of searchResults" >
-   <div (click)="onSearchResultClick(result)">
+   (click)="onSearchResultClick(result)">
     <p>{{result.main_title}}</p> 
    </div>
-    
+
 </div>
+
+ <div class="loader-container" *ngIf="searchIsLoading === true" >
+    
+   <app-loading-spinner></app-loading-spinner>
+
+</div>
+
+
+
+
+<div class="no-result-image-container" *ngIf="searchIsLoading === false && searchResults.length===0" >
+
+
+
+
+        <img src="/assets/images/no-result-face.svg" />
+        <h1>No result found</h1>
+
+        
+</div>
+
 
 </div>
 

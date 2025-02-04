@@ -9,6 +9,12 @@
 }
 
 
+
+img {
+    background: transparent url(/assets/gif/loading.gif) no-repeat scroll center center;
+}
+
+
 .article-comp {
     animation: appear 0.4s;
     margin: 36px auto;
@@ -219,13 +225,13 @@
         }
 
         .second-line-images-container {
-            flex-direction: column;
+            // flex-direction: column;
             padding: 0 !important;
           
 
             img {
                 border-radius: 0 !important;
-                max-width: 100%;
+                // max-width: 100%;
             }
     
         }
