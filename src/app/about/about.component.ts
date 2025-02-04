@@ -135,7 +135,7 @@ observer_quotes.observe(this.quotesContainer.nativeElement)
   cross: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(`&#10012;`)
   arrow: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(`&#10166;`)
   sun : SafeHtml = this.sanitizer.bypassSecurityTrustHtml(`&#9728;`)
-  chess_tower :SafeHtml = this.sanitizer.bypassSecurityTrustHtml(`f441`)
+  chess_tower :SafeHtml = this.sanitizer.bypassSecurityTrustHtml(`&#9787`)
 
 
 

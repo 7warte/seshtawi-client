@@ -183,9 +183,14 @@ h1,h2,h3,h4,h5,h6,p,span{
     }
     //section c
     &.c {
-      padding: 1em;
+     padding: 1em;
      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
      background-color: white;
+     h2{
+      color: var(--primary);
+
+  }
+
 
      .blocks{
       display: flex;
@@ -279,6 +284,11 @@ h1,h2,h3,h4,h5,h6,p,span{
       //   // position: absolute;
       //   top: 0;
       // }
+
+
+      h2{
+        color: var(--primary);
+      }
       .blocks {
         display: flex;
         justify-content: space-between;
@@ -292,8 +302,9 @@ h1,h2,h3,h4,h5,h6,p,span{
         .e1 {
           // flex-direction: column;
   
+          padding-right: 20px;
           .text-title-wrapper{
-            max-width: 422px;
+            // max-width: 422px;
             // h2{
             //   margin: 0;
             //   padding: 40px 0;
@@ -327,7 +338,60 @@ h1,h2,h3,h4,h5,h6,p,span{
       }
     }
     //section f
-//     &.f {
+    &.f {
+
+
+
+
+      .title-wrapper{
+        color: var(--primary);
+      }
+
+
+      .text{
+
+h4{
+  span{
+    color:var(--secondary)
+  }
+}
+
+        b{
+          color: var(--secondary);
+        }
+   
+      }
+
+      .f1{
+        flex-basis: 50%;
+
+      }
+
+      .f2{
+        flex-basis: 50%;
+      }
+
+      .f1{
+        h3{
+          margin-top: 0;
+
+        }
+      }
+
+      .quote{
+
+display: flex;
+align-items: center;
+gap: 15px;
+        .symbol{
+          color: var(--primary-dark);
+          font-size: 26px;
+        }
+  
+      }
+
+
+  }
   
   
 //       // &.show{
@@ -503,9 +567,9 @@ h1,h2,h3,h4,h5,h6,p,span{
 .blocks{
 display: flex;
 gap: 20px;
-  .f1,.f2{
-    flex-basis: 50%;
-  }
+  // .f1,.f2{
+  //   flex-basis: 50%;
+  // }
   margin: 1em 0;
 }
 
