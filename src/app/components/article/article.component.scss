@@ -137,6 +137,7 @@ img {
         display: flex;
         flex-direction: row;
         gap: 60px;
+        padding: 12px 30px;
 
         // padding: 0 30px;
         img {
@@ -222,6 +223,7 @@ img {
         .cover-image {
             img {
                 border-radius: 4px;
+                object-fit: scale-down;
             }
         }
 
@@ -251,9 +253,9 @@ img {
                 display: block;
                 padding: 0 10px;
                 position: absolute;
-                color: white;
+                color: black;
                 bottom: 0;
-                background-color: rgba(255, 255, 255, 0.3);
+                background-color: rgba(255, 255, 255, 0.5);
                 width: 100%;
 
             }

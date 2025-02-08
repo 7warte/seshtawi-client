@@ -1,0 +1,11 @@
+
+
+.badges-info .mdc-tooltip__surface{
+    background-color:var(--secondary) !important;
+    padding: 12px 30px;
+    font-weight: 900 !important;
+
+}
+
+
+

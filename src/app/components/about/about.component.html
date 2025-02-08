@@ -10,38 +10,76 @@
         Javascript web <br /> programmer
       </span>
     </div>
-    <button mat-raised-button
+    <!-- <button
+    #tooltip="matTooltip"
+    mat-raised-button
     matTooltip="Info about the action"
-
+    (click)="tooltip.toggle()"
     matTooltipHideDelay="100000"
     aria-label="Button that displays a tooltip that hides when scrolled out of the container"
     class="example-button">
 Action
-</button>
+</button> -->
 
     <div class="frameworks-logos">
-
-      <div #skills class="wrapper">
+      <div 
+      matTooltipClass='badges-info'
+      #react="matTooltip"
+      matTooltip="My first love"
+      (click)="react.toggle()"
+      matTooltipHideDelay="100"
+      #skills class="wrapper">
         <img src="assets/images/react-logo.svg" alt="">
         <span>React</span>
       </div>
-      <div #skills class="wrapper">
+      <div
+      matTooltipClass='badges-info'
+      #angular="matTooltip"
+      matTooltip="My favorite JS framework"
+      (click)="angular.toggle()"
+      matTooltipHideDelay="100"
+      #skills class="wrapper">
         <img src="assets/images/angular-logo.svg" alt="">
         <span>Angular</span>
       </div>
-      <div #skills class="wrapper">
+      <div 
+      matTooltipClass='badges-info'
+      #express="matTooltip"
+      matTooltip="My loyal companion"
+      (click)="express.toggle()"
+      matTooltipHideDelay="100"
+      #skills class="wrapper">
         <img src="assets/images/nodejs-logo.svg" alt="">
         <span>Express JS</span>
       </div>
-      <div #skills class="wrapper">
+      <div
+      matTooltipClass='badges-info'
+      #javascript="matTooltip"
+      matTooltip="The most versatile programming language on the planet"
+      (click)="javascript.toggle()"
+      matTooltipHideDelay="100"
+      #skills class="wrapper">
         <img src="assets/images/javascript-logo.svg" alt="">
         <span>JavaScript</span>
       </div>
-      <div #skills class="wrapper">
+      <div
+       
+      matTooltipClass='badges-info'
+      #docker="matTooltip"
+      matTooltip="Virtually amazing, don't know what I would do withou it!"
+      (click)="docker.toggle()"
+      matTooltipHideDelay="100"
+      #skills class="wrapper">
         <img src="assets/images/docker-logo.svg" alt="">
         <span>Docker</span>
       </div>
-      <div #skills class="wrapper">
+      <div
+      matTooltipClass='badges-info'
+      #figma="matTooltip"
+      matTooltip="The best designing tool running in browsers!"
+      (click)="figma.toggle()"
+      matTooltipHideDelay="100"
+      #skills class="wrapper">
         <img src="assets/images/figma-logo.svg" alt="">
         <span>Figma</span>
       </div>
