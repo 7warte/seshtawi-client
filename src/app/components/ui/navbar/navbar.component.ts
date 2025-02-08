@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 
 
@@ -54,6 +53,12 @@ export class NavbarComponent {
     this.searchBannerIsOpen = false;
     this.router.navigate(['/article', value.id]);
 
+  }
+
+  navigateHome(){
+
+    this.router.navigate([''])
+    
   }
 
 

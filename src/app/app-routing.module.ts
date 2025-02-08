@@ -20,7 +20,9 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes,{
     
     scrollPositionRestoration: 'enabled' ,
-    onSameUrlNavigation: 'reload' })],
+    onSameUrlNavigation: 'reload' 
+  
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

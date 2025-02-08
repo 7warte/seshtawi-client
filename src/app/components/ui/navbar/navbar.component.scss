@@ -115,7 +115,7 @@
 
         .blog-name {
             display: flex;
-            align-items: self-end;
+            align-items: center;
             gap: 3px;
 
 
@@ -129,22 +129,24 @@
             sans-serif;
             // font-weight: 600;
 
-            font-size: 7px;
+            // font-size: 7px;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
             cursor: pointer;
 
             .main {
+                transition: all 0.4s;
+                font-size: 1.1rem;
                 // color: red;
-                font-size: 19px;
+                // font-size: 19px;
                 // text-transform: full-width;
             }
 
             .secondary {
 
                 display: block;
-                font-size: 10px;
+                // font-size: 10px;
 
             }
         }
@@ -216,7 +218,10 @@
 
             .blog-name {
                 .main {
-                    font-size: 14px;
+                    font-size: 1.1rem;
+                }
+                img{
+                    width: 1.5rem;
                 }
             }
 
@@ -353,12 +358,11 @@
         
                 span{
                     
-                    font-size: 14px;
                     padding-top: 7px;
                 }
              h3{
                 padding: 0;
-                font-size: 26px ;
+                // font-size: 26px ;
                 display: flex;
                 align-items: flex-start;
                 gap: 5px;
