@@ -5,14 +5,15 @@ class=" article-comp component-container page"
 
  
 
-    <div class="article-container" >
+
+     <div class="article-container" >
     <!-- cover image 1_A -->
     <div class="cover-image 1_A" >
         <img [src]="this.articleData.media['1_A']"/>
     </div> 
     <!-- main title text -->
     <div class="main-title">
-       <p>{{articleData.main_title}}</p> 
+       <h1>{{articleData.main_title}}</h1> 
     
     </div>
     <!--  first subtitle text -->
@@ -31,6 +32,14 @@ class=" article-comp component-container page"
         <img [src]="this.articleData.media['2_B']"/>
         <img [src]="this.articleData.media['3_B']"/>
 
+        <div class="over-image-text-mobile-container"  >
+         <p>
+
+            {{articleData.main_title}}
+         </p>
+
+
+        </div>
         
      </div>
 

@@ -4,7 +4,7 @@ import { DocumentationComponent } from './components/documentation/documentation
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ArticleFormComponent } from './components/article-form/article-form.component';
 import { ArticleComponent } from './components/article/article.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 const routes: Routes = [

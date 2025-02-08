@@ -92,7 +92,9 @@
               opacity: 1;
               animation: slideIn;
               animation-duration: 0.4s;
+              animation-fill-mode: forwards;
             }
+
           }
         }
       }
@@ -267,7 +269,7 @@
     }
     @keyframes slideIn {
       from {
-        transform: translateY(100px);
+        transform: translateY(100%);
       }
       to {
         transform: translateY(0);

@@ -3,8 +3,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
-  imports: [],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss','./about.component-mobile.scss']
 })
@@ -25,6 +23,8 @@ export class AboutComponent {
   @ViewChild('quotesContainer') quotesContainer:any;
   @ViewChildren('quote') quotes:any
 
+  // positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
+  // position = new FormControl(this.positionOptions[0]);
 
   ngAfterViewInit() {
 
@@ -85,8 +85,6 @@ observer_quotes.observe(this.quotesContainer.nativeElement)
           console.log('intersecting section a');
           
 
-    
-
       //slide in animation (skills in section a)
       this.skills.forEach((skill: ElementRef, index: number) => {
         let slideInAnimationInterval = setInterval(() => {
@@ -95,7 +93,7 @@ observer_quotes.observe(this.quotesContainer.nativeElement)
             clearInterval(slideInAnimationInterval)
           }
         },
-          index * 70);
+          100 * index);
   
       })
           
