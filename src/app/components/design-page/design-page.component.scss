@@ -7,6 +7,7 @@
 
   h1{
     padding: 11.66px;
+    color: white;
   }
   
 
@@ -56,7 +57,7 @@
     height: 100px;
     position: relative;
     color: white;
-
+    font-weight: 500;
     .primary-variations{
         display: flex;
         height: 50%;
@@ -66,7 +67,7 @@
             background-color: var(--primary-light);
             &::after{
                 position: absolute;
-                padding: 8px;
+                padding: 3px 8px;
                 content: 'Primary light';
                 font-size: 1rem;
             }
@@ -76,8 +77,8 @@
             background-color: var(--primary-dark);
             &::after{
                 position: absolute;
-                padding: 8px;
-                content: 'Primary light';
+                padding: 3px 8px;
+                content: 'Primary dark';
                 font-size: 1rem;
             }
         }
@@ -87,7 +88,7 @@
         background-color: var(--primary);
         &::after{
             position: absolute;
-            padding: 8px;
+            padding: 3px 8px;
             content: 'Primary';
             font-size: 1rem;
         }
@@ -104,7 +105,7 @@
     height: 100px;
     position: relative;
     color: white;
-    font-weight: 600;
+    font-weight: 500;
     .primary-variations{
         display: flex;
         height: 50%;
@@ -115,7 +116,7 @@
             background-color: var(--secondary-light);
             &::after{
                 position: absolute;
-                padding: 8px;
+                padding: 3px 8px;
                 content: 'Secondary light';
                 font-size: 1rem;
             }
@@ -125,7 +126,7 @@
             background-color: var(--secondary-dark); 
             &::after{
                 position: absolute;
-                padding: 8px;
+                padding: 3px 8px;
                 content: 'Secondary dark';
                 font-size: 1rem;
             }
@@ -136,7 +137,7 @@
         background-color: var(--secondary);
         &::after{
             position: absolute;
-            padding: 8px;
+            padding: 3px 8px;
             content: 'Secondary';
             font-size: 1rem;
         }
@@ -150,6 +151,63 @@
 
 }
 
+// font section
+
+
+.design-banner{
+    padding: 1em;
+    margin: 1em 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+
+        img{
+            max-width: 320px;
+        }
+    
+.two-columns{
+
+
+
+    .left{
+        flex-basis: 50%;
+        p{
+            max-width: 320px;
+        }
+
+        .author{
+            color: var(--secondary-dark);
+            font-weight: 500;
+        }
+    }
+
+
+   .right{
+
+
+    margin-top: 24.66px;
+
+    
+        flex-basis: 50%;
+        display: flex;
+        justify-content: left;
+        h1,h2,h3,h4,h5,h6,p,span{
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            color: black;
+            i{
+                color: var(--secondary-dark);
+            }
+        }
+        p{
+            font-size: 500;
+        }
+
+    }
+
+}
+}
+
 
 
 
@@ -159,6 +217,19 @@
 
     .two-columns{
         flex-direction: column-reverse;
+        &.fonts{
+            flex-direction: column ;
+
+            .left{
+                flex-basis: 100%;
+                p{
+                    max-width: unset !important;
+                }
+            }
+    
+        }
+
+        
     }
 
     .design-banner{
