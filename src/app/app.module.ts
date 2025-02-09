@@ -19,6 +19,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { LoadingSpinnerComponent } from "./components/ui/loading-spinner/loading-spinner.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AboutComponent } from './components/about/about.component';
+import { DesignPageComponent } from './components/design-page/design-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { AboutComponent } from './components/about/about.component';
     ArticleFormComponent,
     ArticleComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    DesignPageComponent
   ],
   imports: [
     BrowserModule,

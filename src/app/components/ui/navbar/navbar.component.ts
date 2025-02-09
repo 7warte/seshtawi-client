@@ -63,13 +63,13 @@ export class NavbarComponent {
 
 
 
-  menuItems: Array<{name:string,route:string}> = 
+  menuItems: Array<{name:string,route:string,active?:boolean}> = 
   [
     {name:'About me',route:''},
     {name:'Articles',route:'articles'},
-    {name:'Website Design',route:'articles'},
-    {name:'Code Snippets',route:'articles'},
-    {name:'Contact me',route:'articles'},
+    {name:'My true colors',route:'design'},
+    {name:'Code Snippets',route:'articles',active:false},
+    {name:'Contact me',route:'articles',active:false},
 
   
   ]

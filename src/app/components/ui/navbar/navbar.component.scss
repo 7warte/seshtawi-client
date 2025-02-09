@@ -261,7 +261,7 @@
     }
 
     .result {
-        font-family: 'Roboto Condensed';
+        // font-family: 'Roboto Condensed';
         cursor: pointer;
         color: white;
         border-bottom: 1px solid white;
@@ -319,10 +319,10 @@
     background-color:  var(--primary-dark);
     box-shadow: inset 0 0 70px var(--primary-dark);
     width: 100%;
-    opacity: 0;
+    // opacity: 0;
     &.open{
         transform: translate(0%);
-        opacity: 1;
+        // opacity: 1;
     }
 
 
@@ -355,6 +355,11 @@
 
             .menu-item{
                 position: relative;
+
+                &.disabled{
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
         
                 span{
                     

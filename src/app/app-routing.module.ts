@@ -5,6 +5,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ArticleFormComponent } from './components/article-form/article-form.component';
 import { ArticleComponent } from './components/article/article.component';
 import { AboutComponent } from './components/about/about.component';
+import { DesignPageComponent } from './components/design-page/design-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
 ,
 { path: 'new-article', component: ArticleFormComponent },
 { path: 'article/:id', component: ArticleComponent },
-{ path: 'articles', component: HomepageComponent }
+{ path: 'articles', component: HomepageComponent },
+{ path: 'design', component: DesignPageComponent }
 ];
 
 @NgModule({

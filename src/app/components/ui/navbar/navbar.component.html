@@ -129,9 +129,12 @@ class="menu-banner">
 <div class="menu-body">
 <div>
 <div 
+[ngClass]="{disabled:menuItem?.active===false}"
 class="menu-item"
 *ngFor="let menuItem of menuItems; let i = index">
 <a 
+
+
 (click)="toggleMenuBanner()"
 [routerLink]="[menuItem.route]" routerLinkActive="is-active">  
     <h3>
