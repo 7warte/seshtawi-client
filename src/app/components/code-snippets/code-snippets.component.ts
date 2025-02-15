@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-code-snippets',
     templateUrl: './code-snippets.component.html',
-    styleUrl: './code-snippets.component.scss'
+    styleUrl: './code-snippets.component.scss',
+    standalone:false
 })
 export class CodeSnippetsComponent {
 

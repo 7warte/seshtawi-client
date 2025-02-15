@@ -16,7 +16,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
-import { LoadingSpinnerComponent } from "./components/ui/loading-spinner/loading-spinner.component";
+import { LoadingSpinnerComponent } from './components/ui/loading-spinner/loading-spinner.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AboutComponent } from './components/about/about.component';
 import { DesignPageComponent } from './components/design-page/design-page.component';
@@ -34,7 +34,9 @@ import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.
     FooterComponent,
     CarouselComponent,
     DesignPageComponent,
+    LoadingSpinnerComponent,
     CodeSnippetsComponent
+    
   ],
   imports: [
     BrowserModule,
