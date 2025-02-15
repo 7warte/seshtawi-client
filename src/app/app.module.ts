@@ -20,6 +20,8 @@ import { LoadingSpinnerComponent } from "./components/ui/loading-spinner/loading
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AboutComponent } from './components/about/about.component';
 import { DesignPageComponent } from './components/design-page/design-page.component';
+import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { DesignPageComponent } from './components/design-page/design-page.compon
     ArticleComponent,
     FooterComponent,
     CarouselComponent,
-    DesignPageComponent
+    DesignPageComponent,
+    CodeSnippetsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +42,8 @@ import { DesignPageComponent } from './components/design-page/design-page.compon
     CarouselModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    LoadingSpinnerComponent,
-    MatTooltipModule
+    MatTooltipModule,
+   
 ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent]
