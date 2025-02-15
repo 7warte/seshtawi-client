@@ -1,9 +1,10 @@
 import { Component,  ElementRef,  Input,  ViewChild, ViewChildren } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+    selector: 'app-carousel',
+    templateUrl: './carousel.component.html',
+    styleUrls: ['./carousel.component.scss'],
+    standalone: false
 })
 export class CarouselComponent {
 

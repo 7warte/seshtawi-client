@@ -5,9 +5,10 @@ import { debounceTime, last, distinctUntilChanged, Subject, BehaviorSubject } fr
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
+    standalone: false
 })
 
 

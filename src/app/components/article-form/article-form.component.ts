@@ -4,10 +4,10 @@ import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
 @Component({
-  selector: 'app-article-form',
-  templateUrl: './article-form.component.html',
-  styleUrls: ['./article-form.component.scss'],
-
+    selector: 'app-article-form',
+    templateUrl: './article-form.component.html',
+    styleUrls: ['./article-form.component.scss'],
+    standalone: false
 })
 export class ArticleFormComponent {
   blog_id: number = 1;
