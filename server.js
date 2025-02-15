@@ -15,7 +15,7 @@ app.get((req,res,next)=>{
 
 app.get('/', (req,res,next)=>{
 
-    res.sendFile('index.html',{root:'dist/web_blog/browser/'})
+    res.sendFile('index.html',{root:'dist/web_blog/browser'})
 })
 
 

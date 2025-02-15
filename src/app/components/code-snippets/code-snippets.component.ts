@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-code-snippets',
@@ -8,8 +9,28 @@ import { Component } from '@angular/core';
 })
 export class CodeSnippetsComponent {
 
+  @ViewChild('iframe') iframe: any ;
+
+
+  constructor(private http:HttpClient){
+    
+  }
+
 
   ngOnInit(){
+
+  //   this.http.get('https://gist.github.com/7warte/a286cd431ee46d911c42d65be5bcca29.js')
+  //   // .subscribe({
+  //   //   next: (res)=>{
+  //   //     console.log(res);
+        
+  //   //   }
+  //   // })
+
+  }
+
+
+  ngAfterViewInit(){
     this.loadScript(this.codeGists[0])
   }
 
@@ -20,21 +41,32 @@ export class CodeSnippetsComponent {
   ]
 
 
+
+
+
   loadScript(gist:any){
 
-    let body = document.body;
-    console.log(body);
 
-    let script = document.createElement('script');
-    script.innerHTML='';
-    script.src=gist.url
-    script.async =true;
-    script.defer=true;
 
-    console.log(script);
+    console.log(this.iframe);
     
 
-    body.appendChild(script)
+    const doc = this.iframe.nativeElement.contentDocument || this.iframe.nativeElement.contentElement.contentWindow;
+    console.log(doc);
+    
+    const content = `
+        <html>
+        <head>
+          <base target="_parent">
+        </head>
+        <body>
+        <script type="text/javascript" src="${this.codeGists[0].url}"></script>
+        </body>
+      </html>
+    `;
+    doc.open();
+    doc.write(content);
+    doc.close();
     
 
 
