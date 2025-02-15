@@ -68,8 +68,9 @@ export class NavbarComponent {
     {name:'About me',route:''},
     {name:'Articles',route:'articles'},
     {name:'My true colors',route:'design'},
-    {name:'Code Snippets',route:'articles',active:false},
+    {name:'Code Snippets',route:'code',active:true},
     {name:'Contact me',route:'articles',active:false},
+    
 
   
   ]
