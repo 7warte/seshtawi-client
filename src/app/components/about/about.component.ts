@@ -16,7 +16,7 @@ export class AboutComponent {
 
 
 
-
+ @ViewChildren('banner') banners:HTMLElement | any
 
   @ViewChildren('skills') skills: ElementRef | undefined | any;
   @ViewChildren('sections') sections: any
@@ -29,87 +29,40 @@ export class AboutComponent {
 
   ngAfterViewInit() {
 
-
-
-
-    // slide in from left animation in (quotes in section f)
-
-let quotes_observer_options:any ={treshold:1.0,rootMargin:'0px'}
-let observer_quotes:any = new IntersectionObserver((entry:any)=>{
-
-  if(entry[0].isIntersecting){
-    console.log(this.quotes);
-    this.quotes._results.forEach((quote:any,index:number)=>{
-      console.log(quote);
-
-   
-      setTimeout(() => {
-        quote.nativeElement.classList.add('slide-in');
-      }, 130*index);
-      
-      
-    })
-  }else{
-    
-    this.quotes._results.forEach((quote:any)=>{
-      quote.nativeElement.classList.remove('slide-in')
-
-    })
-    
-  }
-
-  
-  
-  
-},quotes_observer_options)
-
-console.log(this.quotesContainer.nativeElement);
-
-observer_quotes.observe(this.quotesContainer.nativeElement)
-
-
-
-
-    // lazy loading animation (sections)
-
     let options = {
       threshold: 0.45 // Adjust this value as needed (0 to 1)
     };
 
 
+    console.log('ngAfterViewInit');
+
 
     let observer_sections: any = new IntersectionObserver((entries: any) => {
       entries.forEach((entry: any) => {
+        console.log(entry);
 
-        let entryClasses = Array.from(entry.target.classList) 
+        let entryClasses = Array.from(entry.target.classList)
         if(entryClasses.includes('section')&& entryClasses.includes('a')){
           console.log('intersecting section a');
-          
-
+          console.log(this.skills);
       //slide in animation (skills in section a)
-      this.skills.forEach((skill: ElementRef, index: number) => {
+      this.skills?.forEach((skill: ElementRef, index: number) => {
         let slideInAnimationInterval = setInterval(() => {
+
           skill.nativeElement.classList.add('slideIn');
           if (index === this.skills.length - 1) {
             clearInterval(slideInAnimationInterval)
+            console.log('index === this.skills.length - 1 ->true');
+
           }
         },
           100 * index);
-  
+
       })
-          
-
-          
-
         }
-
-        
-        
 
         if (entry.isIntersecting) {
           entry.target.classList.add('show')
-
-
         }
 
       })
@@ -118,12 +71,9 @@ observer_quotes.observe(this.quotesContainer.nativeElement)
 
 
 
-    this.sections.forEach((section: any) => {
-      observer_sections.observe(section.nativeElement)
-    })
-
-
-
+this.sections.forEach((section: any) => {
+  observer_sections.observe(section.nativeElement)
+})
 
 
 
@@ -162,6 +112,35 @@ observer_quotes.observe(this.quotesContainer.nativeElement)
     }
   `);
 
+
+  navigationBanners = [
+    {name:'Banner 1' ,active:true},
+    {name:'Banner 2' ,active:true},
+    {name:'Banner 3' ,active :true}
+
+  ]
+
+  resetBannerActiveState(){
+
+    this.navigationBanners.forEach((banner:any)=>{
+      banner.active = true
+    })
+
+  }
+
+  opacityOnSibiling_effect(bannerIndex:any){
+
+    console.log(bannerIndex);
+    this.navigationBanners.forEach((banner:any,index:number)=>{
+      if(bannerIndex !== index){
+        banner.active = false
+      }else{
+        banner.active =true
+      }
+    });
+
+    console.log(this.navigationBanners);
+  }
 
 
 
