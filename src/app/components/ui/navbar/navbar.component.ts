@@ -59,21 +59,21 @@ export class NavbarComponent {
   navigateHome(){
 
     this.router.navigate([''])
-    
+
   }
 
 
 
-  menuItems: Array<{name:string,route:string,active?:boolean}> = 
+  menuItems: Array<{name:string,route:string,active?:boolean}> =
   [
     {name:'About me',route:''},
     {name:'Articles',route:'articles'},
     {name:'My true colors',route:'design'},
     {name:'Code Snippets',route:'code',active:true},
     {name:'Contact me',route:'articles',active:false},
-    
 
-  
+
+
   ]
 
 
@@ -119,8 +119,8 @@ export class NavbarComponent {
     if (this.menuBannerIsOpen === true) {
       this.searchBannerIsOpen = false
 
-     
-      
+
+
       document_.body.classList.add('mobile-menu-mode');
 
     } else {

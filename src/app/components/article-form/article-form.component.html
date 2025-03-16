@@ -4,7 +4,7 @@
        <!-- cover image 1_A -->
        <div class="cover-image one_A">
               <label>1_A</label>
-              <input 
+              <input
               name="photo" type="file" class="file-input" (change)="onFileSelected($event, '1_A')" #fileUpload>
               <div *ngIf="imagesPreview['1_A']">
                      <img class="image-preview" [src]="imagesPreview['1_A']">
@@ -13,14 +13,13 @@
        <!-- main title text -->
        <div class="main-title">
               <textarea
-              
               [formControlName]="'main_title'"
               name="main_title" #main_title (input)="onTextInput(main_title)"
                      placeholder="main title"></textarea>
        </div>
        <!--  first subtitle text -->
        <div class="first-subtitle">
-              <textarea 
+              <textarea
               [formControlName]="'subtitle_1'"
               placeholder="first subtitle" name="subtitle_1" #subtitle_1
                      (input)="onTextInput(subtitle_1)"></textarea>
@@ -71,7 +70,7 @@
            <img [src]="API_url + articleData.id + '/'+ articleMedia['3_B']"/> -->
        </div>
        <div class="second-body">
-              <textarea 
+              <textarea
               [formControlName]="'subtitle_2'"
               placeholder="Subtitle 2" name="subtitle_2" #subtitle_2
                      (input)="onTextInput(subtitle_2)"></textarea>
@@ -100,7 +99,7 @@
               </div>
        </div>
        <div class="tags">
-              <textarea 
+              <textarea
               [formControlName]="'tags'"
               placeholder="tags" name="tags" #tags (input)="onTextInput(tags)"></textarea>
        </div>

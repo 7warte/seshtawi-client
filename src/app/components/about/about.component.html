@@ -391,6 +391,7 @@ class="
   section
   bottom-navigation-banners" >
 <div
+(click)="navigateTo(banner.path)"
 [ngClass]="{active:banner.active, inactive:!banner.active}"
 *ngFor="let banner of navigationBanners; let i = index;"
 (mouseover)="opacityOnSibiling_effect(i)"

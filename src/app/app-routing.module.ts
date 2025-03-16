@@ -7,6 +7,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { AboutComponent } from './components/about/about.component';
 import { DesignPageComponent } from './components/design-page/design-page.component';
 import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.component';
+import { PhotoFormComponent } from './components/photo-form/photo-form.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: '', component: AboutComponent }
 ,
 { path: 'new-article', component: ArticleFormComponent },
+{ path: 'new-photo', component: PhotoFormComponent },
 { path: 'article/:id', component: ArticleComponent },
 { path: 'articles', component: HomepageComponent },
 { path: 'design', component: DesignPageComponent },
@@ -22,10 +24,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,{
-    
+
     scrollPositionRestoration: 'enabled' ,
-    onSameUrlNavigation: 'reload' 
-  
+    onSameUrlNavigation: 'reload'
+
   })],
   exports: [RouterModule]
 })

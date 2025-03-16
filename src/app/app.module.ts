@@ -7,7 +7,7 @@ import { NavbarComponent } from './components/ui/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { provideHttpClient } from '@angular/common/http';
 
-import {MatTooltipModule} from '@angular/material/tooltip'; 
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { ArticleFormComponent } from './components/article-form/article-form.component';
 import { ArticleComponent } from './components/article/article.component';
@@ -21,7 +21,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AboutComponent } from './components/about/about.component';
 import { DesignPageComponent } from './components/design-page/design-page.component';
 import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.component';
-
+import { PhotoFormComponent } from './components/photo-form/photo-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +35,9 @@ import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.
     CarouselComponent,
     DesignPageComponent,
     LoadingSpinnerComponent,
-    CodeSnippetsComponent
-    
+    CodeSnippetsComponent,
+    PhotoFormComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,7 @@ import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatTooltipModule,
-   
+
 ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent]

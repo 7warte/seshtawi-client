@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, ViewChildren } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-
+import { Router } from '@angular/router';
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
@@ -10,14 +10,15 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class AboutComponent {
 
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(
+    private router:Router,
+    private sanitizer: DomSanitizer) {
 
   }
 
 
 
  @ViewChildren('banner') banners:HTMLElement | any
-
   @ViewChildren('skills') skills: ElementRef | undefined | any;
   @ViewChildren('sections') sections: any
 
@@ -114,9 +115,9 @@ this.sections.forEach((section: any) => {
 
 
   navigationBanners = [
-    {name:'Banner 1' ,active:true},
-    {name:'Banner 2' ,active:true},
-    {name:'Banner 3' ,active :true}
+    {name:'My code' ,active:true,path:'code'},
+    {name:'My articles ' ,active:true,path:'articles'},
+    {name:'My shots' ,active :false,path:''}
 
   ]
 
@@ -125,6 +126,14 @@ this.sections.forEach((section: any) => {
     this.navigationBanners.forEach((banner:any)=>{
       banner.active = true
     })
+
+  }
+
+  navigateTo(route:string){
+    console.log(route);
+
+    this.router.navigate([route])
+
 
   }
 

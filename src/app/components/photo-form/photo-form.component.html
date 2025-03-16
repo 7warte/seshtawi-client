@@ -1,0 +1,13 @@
+
+<form  [formGroup]="photoForm" enctype="multipart/form-data">
+  <!-- cover image 1_A -->
+  <div class="cover-image one_A">
+         <label>Photo</label>
+         <input
+         name="photo" type="file" class="file-input" (change)="onFileSelected($event, '1_A')" #fileUpload>
+         <div *ngIf="imagePreview['result']">
+                <img class="image-preview" [src]="imagePreview['result']">
+         </div>
+  </div>
+
+  </form>
