@@ -15,6 +15,7 @@
 class="photo-viewer">
   <div class="header">
 <button
+class="close-viewer"
 (click)="closeViewer()"
 >close</button>
   </div>
@@ -24,6 +25,18 @@ class="photo-viewer">
 
   </div>
 
+</div>
+
+
+<div
+*ngIf="allPhotos.length === 0"
+class="loading-grid">
+  <div
+ *ngFor="let photo of loadingPlaceholdersQty; let i =index"
+ [class]= "'placeholder photo-placeholder-' + i"
+>
+
+</div>
 </div>
 
 <div
@@ -47,7 +60,6 @@ class="photo"
 
 
 <div
-
 *ngIf="this.layout==='compact'"
 class="photo-container-compact"
 >

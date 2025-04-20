@@ -20,6 +20,7 @@ export class PhotosComponent {
   allPhotos:any =[];
   layout:any= 'compact';
   preview:any =null;
+  loadingPlaceholdersQty = Array.from(Array(20))
 
    backgrounds:string[] = [
     'https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/test.jpg',
