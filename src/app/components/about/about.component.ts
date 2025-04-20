@@ -117,7 +117,7 @@ this.sections.forEach((section: any) => {
   navigationBanners = [
     {name:'My code' ,active:true,path:'code'},
     {name:'My articles ' ,active:true,path:'articles'},
-    {name:'My shots' ,active :false,path:''}
+    {name:'My shots' ,active :true,path:'shots'}
 
   ]
 

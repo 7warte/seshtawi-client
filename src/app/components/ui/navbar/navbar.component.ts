@@ -24,10 +24,6 @@ export class NavbarComponent {
     this.searchInput.pipe(
       debounceTime(500) // Adjust the debounce time (in milliseconds) as needed
     ).subscribe((searchTerm: string) => {
-
-
-
-
       this.onSearch(searchTerm)
     });
 
@@ -188,13 +184,8 @@ export class NavbarComponent {
 
   onSearch(value: any) {
 
-
      this.searchIsLoading = true;
-
-
     // this.searchBannerIsOpen = this.searchBar.nativeElement.value.length >0 ? true:false;
-
-
 
     let payload = {
       query: value

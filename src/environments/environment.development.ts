@@ -1,8 +1,8 @@
 export const environment = {
 
       production: false,
-      // apiUrl_backend: 'http://localhost:3000/',
-       apiUrl_backend: 'https://zwarte-blog-backend-015f74c3dd24.herokuapp.com/',
+      apiUrl_backend: 'http://localhost:3000/',
+      //  apiUrl_backend: 'https://zwarte-blog-backend-015f74c3dd24.herokuapp.com/',
       // cdn_url:'http://localhost:4400/',
       // apiUrl_backend: 'https://zwarte-blog-backend-015f74c3dd24.herokuapp.com/',
       apiUrl_backend_dev: 'http://localhost:4200/',

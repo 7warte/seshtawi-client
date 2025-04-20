@@ -16,7 +16,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
-    private http:HttpClient){
+    private http:HttpClient
+  ){
 
 
   }
@@ -29,7 +30,7 @@ export class ArticleComponent implements OnInit {
 
 
 
-  
+
 // slides = [
 
 //   {id: 1, img: "assets/products-carousel-media/adomas-aleno-E20nTXEAUrs-unsplash.jpg"},
@@ -74,14 +75,14 @@ export class ArticleComponent implements OnInit {
     },
     nav: true
   }
-  
 
-  
+
+
   ngOnInit(): void {
 
       this.route.params.subscribe((val:any) => {
         this.populateArticle(val.id)
-        
+
       })
 
 
@@ -97,7 +98,7 @@ export class ArticleComponent implements OnInit {
 
 
       console.log(response);
-      
+
 
       this.articleData = response;
 
@@ -109,14 +110,14 @@ export class ArticleComponent implements OnInit {
    response.images.forEach((img:{name:string, position:string})=>{
 
     media[img.position]=`https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/${img.name}`
-        
+
       // return {[img.position]:`https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/${img.name}`}
 
       })
 
       console.log(media);
       this.articleData.media = media;
-      
+
 
 
     })
@@ -124,7 +125,7 @@ export class ArticleComponent implements OnInit {
   }
 
 
-  
+
 
 
 }

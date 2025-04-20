@@ -1,0 +1,70 @@
+<!--
+<div class="header">
+  <div class="left">
+    <img src="{{currentBackground}}"/>
+  </div>
+
+
+
+  <div class="right">
+    <h1>Marc</h1>
+  </div>
+</div> -->
+<div
+*ngIf="this.preview !==null"
+class="photo-viewer">
+  <div class="header">
+<button
+(click)="closeViewer()"
+>close</button>
+  </div>
+
+  <div class="image-wrapper">
+    <img src="https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/{{this.preview.images.main}}" alt="">
+
+  </div>
+
+</div>
+
+<div
+class="photo-container-extended"
+*ngIf="this.layout==='extended'"
+
+>
+<div
+(click)="onPhotoClick(item)"
+class="photo"
+*ngFor="let item of allPhotos" >
+<div class="left">
+  <img src="https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/{{item.images.main}}" alt="">
+</div>
+<div class="right">
+ <h2>{{item.title}}</h2>
+ <p>{{item.description}}</p>
+</div>
+</div>
+</div>
+
+
+<div
+
+*ngIf="this.layout==='compact'"
+class="photo-container-compact"
+>
+<div
+(click)="onPhotoClick(item)"
+class="photo"
+*ngFor="let item of allPhotos" >
+  <img src="https://pub-5a93bfba08b2473cac01f5c228f371df.r2.dev/seshtawi-blog/{{item.images.main}}" alt="">
+</div>
+</div>
+
+
+<div class="actions-footbar">
+  <button
+  (click)="toggleView('compact')"
+  >compact view</button>
+  <button
+  (click)="toggleView('extended')"
+  >cextended view</button>
+</div>

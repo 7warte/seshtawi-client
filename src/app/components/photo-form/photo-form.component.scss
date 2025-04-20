@@ -1,0 +1,27 @@
+
+
+.image-preview{
+  max-width: 100%;
+
+}
+
+.input-wrapper{
+  display: flex;
+
+  label{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    input{
+      flex-basis: 80%;
+    }
+  }
+
+
+}
+
+form{
+  button{
+    width: 100%;
+  }
+}

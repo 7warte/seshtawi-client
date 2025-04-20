@@ -4,10 +4,46 @@
   <div class="cover-image one_A">
          <label>Photo</label>
          <input
-         name="photo" type="file" class="file-input" (change)="onFileSelected($event, '1_A')" #fileUpload>
+         name="photo" type="file" class="file-input" (change)="onFileSelected($event, '1_A')"
+          #fileUpload>
          <div *ngIf="imagePreview['result']">
                 <img class="image-preview" [src]="imagePreview['result']">
          </div>
   </div>
 
+
+  <!-- title -->
+  <div class="input-wrapper">
+    <label
+    for="photo-title"
+    >
+    Title
+      <input
+      name="photo-title"
+      #title
+      (input)="fillForm('title',title.value)"
+      FormControl="title" type="text">
+    </label>
+  </div>
+
+
+    <div class="input-wrapper">
+    <label
+    for="photo-description"
+    >
+    Description
+      <input
+      name="photo-description"
+      #description
+      (input)="fillForm('description',description.value)"
+      FormControl="description" type="text">
+    </label>
+  </div>
+
+
+  <button
+  (click)="submitForm()"
+  type="submit">
+    POST PHOTO
+  </button>
   </form>

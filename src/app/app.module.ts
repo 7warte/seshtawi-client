@@ -22,6 +22,7 @@ import { AboutComponent } from './components/about/about.component';
 import { DesignPageComponent } from './components/design-page/design-page.component';
 import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.component';
 import { PhotoFormComponent } from './components/photo-form/photo-form.component';
+import { PhotosComponent } from './components/photos/photos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { PhotoFormComponent } from './components/photo-form/photo-form.component
     DesignPageComponent,
     LoadingSpinnerComponent,
     CodeSnippetsComponent,
-    PhotoFormComponent
+    PhotoFormComponent,
+    PhotosComponent
 
   ],
   imports: [

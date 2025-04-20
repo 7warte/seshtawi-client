@@ -38,13 +38,13 @@ export class ArticleFormComponent {
     body_2: new FormControl('body_2'),
     caption: new FormControl('caption'),
     tags: new FormControl('tags'),
-  
+
   })
 
 
   constructor(private http: HttpClient) {
 
-    
+
 
    }
 
@@ -58,11 +58,11 @@ export class ArticleFormComponent {
     this.caption.nativeElement.value = 'Testing caption';
     this.tags.nativeElement.value = 'test, example'
 
-    
+
    }
 
 
-   
+
 
   validationObject: any = {
     images: {
@@ -85,8 +85,8 @@ export class ArticleFormComponent {
   formValidation() {
 
 
-    return this.sendForm()  
- 
+    return this.sendForm()
+
     this.missingFields.length = 0;
     // this functin should return an object containing 2 properties:
     // 1 : a boolean that should be true if all the fields are filled
@@ -100,7 +100,7 @@ export class ArticleFormComponent {
       .values(this.validationObject.texts)
       .every(value => value === true);
     if (textsFilled === true && imagesFilled) {
-      this.sendForm()  
+      this.sendForm()
     }
     else {
       let falseProperties = []
@@ -123,16 +123,16 @@ export class ArticleFormComponent {
   onFileSelected(event: any, inputName: any) {
     console.log(event.target.files);
     //storing images preview
-    
+
       const imageFile = event.target.files[0];
       const reader = new FileReader()
       reader.onload = (e)=>{  this.imagesPreview[inputName] = reader.result  }
       reader.readAsDataURL(imageFile)
-    // validation 
+    // validation
     this.validationObject.images[inputName] = true;
     const file: any = event.target.files[0];
     console.log(inputName);
-    
+
     let media = {file:file, position:inputName }
     this.pictures.push(media);
     console.log(this.pictures);
@@ -148,22 +148,19 @@ export class ArticleFormComponent {
   sendForm() {
 
 
-    let passcheck = window.prompt('...');
+    // let passcheck = window.prompt('...');
 
-    if(passcheck!=='b4rabb3ro-71070!'){
-      return window.alert('Something went wrong')
-    }
-    
+    // if(passcheck!=='b4rabb3ro-71070!'){
+    //   return window.alert('Something went wrong')
+    // }
 
 
-  
+
+
     // console.log(this.articleForm);
     // console.log(this.pictures);
 
-
     let formData_backend = new FormData();
-    
-    
 
 
     // More images associated with the same article or other articles...
@@ -197,62 +194,27 @@ this.pictures.forEach((image:any)=>{
 
 
     const saveArticle = this.http.post(`${environment.apiUrl_backend}new-article`, formData_backend, {
-  
-    });
-    saveArticle.subscribe((response_backend: any) => {
-       console.log(response_backend);
 
-       if(response_backend.id ===null){
-        window.alert(response_backend.message)
-       }
-      
-      // let images: any = [];  
-      
-      
-      //images names stored in array
-    //   this.pictures.forEach((media:any) => {
-  
-    //   media.parent_id = response_backend.id
-    // //  images.push({name:media.file.name, position:media.position})
-    //     // this.formData_CDN.append('photos', media.file);
-  
-  
-    //   })
-      // this.formData_CDN.append('parent_id',response_backend.id)
-  
-      // console.log(this.formData_CDN);
-      
-      // the newly created article is return in case of success:
-      // var formData_CDN_identified = new FormData()  // once the article id is returned a new formData is created with article ID's
-      // this.formData_CDN.forEach((file: any) => {
-      //   file.parent_id = response_backend.id
-      //   console.warn(file);
-        
-      //   console.log(file,'<---file');
-      //   console.log(response_backend);
-      //   console.log('---------------');
-        
-        
-      //   formData_CDN_identified.append('photos', file);
-      //   // article ID is associated with each of
-      //   // console.warn(img);
-      //   // img['blog_id'] = response_backend.id
-      // })
-      // formData_CDN_identified.append('article_id', response_backend.id);
-      
-    //   const headers = {
-    //     parent_id:response_backend.id
-    //   }
-    //   const upload = this.http.post(`${environment.cdn_url}new-article`, this.formData_CDN,{
-    //     headers:headers
-    //   });
-    //   upload
-    //   .pipe(map((response_CDN:any)=>{
-    //  location.reload()
-    //   }))
-    //   .subscribe(response_CDN => {
-    //     console.log(response_CDN);
-    //   });
+    });
+    saveArticle.subscribe({
+      next:(response_backend: any) => {
+
+        if(response_backend.id ===null){
+         window.alert(response_backend.message)
+        }
+
+
+     },
+
+     complete:()=>{
+      console.log('completed');
+
+     },
+     error:(err:any)=>{
+      console.log(err);
+      return err
+
+     }
     });
   }
 }
@@ -282,4 +244,3 @@ this.pictures.forEach((image:any)=>{
 
 
 // }
-
