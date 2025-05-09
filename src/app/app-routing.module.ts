@@ -10,6 +10,7 @@ import { DesignPageComponent } from './components/design-page/design-page.compon
 import { CodeSnippetsComponent } from './components/code-snippets/code-snippets.component';
 import { PhotoFormComponent } from './components/photo-form/photo-form.component';
 import { PhotosComponent } from './components/photos/photos.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,9 @@ const routes: Routes = [
 { path: 'article/:id', component: ArticleComponent },
 { path: 'articles', component: HomepageComponent },
 { path: 'design', component: DesignPageComponent },
-{ path: 'code', component: CodeSnippetsComponent }
+{ path: 'code', component: CodeSnippetsComponent },
+{ path: 'code', component: CodeSnippetsComponent },
+{ path: 'admin', component: AdminPanelComponent }
 ];
 
 @NgModule({

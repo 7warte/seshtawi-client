@@ -59,16 +59,21 @@ export class NavbarComponent {
   }
 
 
+  goToAdminSection(){
+    console.log('test');
+
+    this.router.navigate(['admin'])
+
+  }
+
 
   menuItems: Array<{name:string,route:string,active?:boolean}> =
   [
     {name:'About me',route:''},
     {name:'Articles',route:'articles'},
     {name:'My true colors',route:'design'},
-    {name:'Code Snippets',route:'code',active:true},
+    // {name:'Code Snippets',route:'code',active:true},
     {name:'Contact me',route:'articles',active:false},
-
-
 
   ]
 
