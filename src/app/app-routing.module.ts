@@ -12,7 +12,6 @@ import { PhotoFormComponent } from './components/photo-form/photo-form.component
 import { PhotosComponent } from './components/photos/photos.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
-
 const routes: Routes = [
   { path: 'docs', component: DocumentationComponent },
   { path: '', component: AboutComponent }
