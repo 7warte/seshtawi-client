@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { DocumentationComponent } from './components/documentation/documentation.component';
 import { NavbarComponent } from './components/ui/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import {MatTooltipModule} from '@angular/material/tooltip';
 
@@ -50,7 +50,9 @@ import { PhotosComponent } from './components/photos/photos.component';
     MatTooltipModule,
 
 ],
-  providers: [provideHttpClient(), provideAnimationsAsync()],
+  providers: [    provideHttpClient(
+      withFetch(),
+    ),],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

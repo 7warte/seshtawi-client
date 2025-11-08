@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, ViewChildren } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { BackgroundAnimationsService } from './background-animations.service';
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
@@ -12,7 +13,9 @@ export class AboutComponent {
 
   constructor(
     private router:Router,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private backgroundAnimation :BackgroundAnimationsService
+  ) {
 
   }
 
@@ -22,13 +25,25 @@ export class AboutComponent {
   @ViewChildren('skills') skills: ElementRef | undefined | any;
   @ViewChildren('sections') sections: any
 
+
+
+    @ViewChild('bg_animation') bg_animation:any;
+
+
   @ViewChild('quotesContainer') quotesContainer:any;
   @ViewChildren('quote') quotes:any
 
   // positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   // position = new FormControl(this.positionOptions[0]);
 
+
   ngAfterViewInit() {
+
+
+    console.log(this.bg_animation);
+    
+this.backgroundAnimation.createScene(this.bg_animation)
+this.backgroundAnimation.animate()
 
     let options = {
       threshold: 0.45 // Adjust this value as needed (0 to 1)
