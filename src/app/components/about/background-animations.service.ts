@@ -150,7 +150,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
-    this.cube_figma.position.y = viewMode ==='mobile' ? -1.7 : -2;
+    this.cube_figma.position.y = viewMode ==='mobile' ? -0.4 : -2;
     this.cube_figma.position.x = viewMode ==='mobile' ? 0.3 : 8.8;
     this.cube_figma.position.z = -5.8;
     this.scene.add(this.cube_figma);
@@ -164,7 +164,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
 
 
     this.cube_docker = new THREE.Mesh(geometry, textureDocker);
-    this.cube_docker.position.y = viewMode ==='mobile' ? -0.7 : -1.5;
+    this.cube_docker.position.y = viewMode ==='mobile' ? 1.7 : -1.5;
     this.cube_docker.position.x = viewMode ==='mobile' ? 0 : -7.2;
     this.cube_docker.position.z = -4.7;
     this.scene.add(this.cube_docker);
