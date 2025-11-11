@@ -101,7 +101,7 @@ cube_node_image.colorSpace = THREE.SRGBColorSpace;
 cube_node_image.minFilter = THREE.LinearMipmapLinearFilter;
 cube_node_image.magFilter = THREE.LinearFilter;
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    const dirLight = new THREE.DirectionalLight(0x5B6D92, 5);
     dirLight.position.set(0, 0, 3);
     this.scene.add(dirLight);
     // this.scene.add(new THREE.AmbientLight(0xffffff, 0));
@@ -132,33 +132,33 @@ cube_node_image.magFilter = THREE.LinearFilter;
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
     this.cube_angular.position.y = 2;
     this.cube_angular.position.x = -10.2;
-    this.cube_angular.position.z = -4.2;
+    this.cube_angular.position.z = -6.2;
     this.scene.add(this.cube_angular);
 
     this.cube_react = new THREE.Mesh(geometry, textureReact);
     this.cube_react.position.y = 1;
     this.cube_react.position.x = 5.2;
-    this.cube_react.position.z = -2.2;
+    this.cube_react.position.z = -6.2;
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
     this.cube_figma.position.y = -2;
     this.cube_figma.position.x = -8.2;
-    this.cube_figma.position.z = -2.8;
+    this.cube_figma.position.z = -5.8;
     this.scene.add(this.cube_figma);
 
     this.cube_js = new THREE.Mesh(geometry, textureJavascript);
 
     this.cube_js.position.y = 0;
     this.cube_js.position.x = -4.2;
-    this.cube_js.position.z = -2.2;
+    this.cube_js.position.z = -4.2;
     this.scene.add(this.cube_js);
 
 
     this.cube_docker = new THREE.Mesh(geometry, textureDocker);
     this.cube_docker.position.y = -1.5;
     this.cube_docker.position.x = 7.2;
-    this.cube_docker.position.z = -1.7;
+    this.cube_docker.position.z = -4.7;
     this.scene.add(this.cube_docker);
 
 
@@ -166,7 +166,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
     this.cube_node = new THREE.Mesh(geometry, textureNode);
     this.cube_node.position.y = -1.5;
     this.cube_node.position.x = 3.2;
-    this.cube_node.position.z = -1.2;
+    this.cube_node.position.z = -5.2;
     this.scene.add(this.cube_node);
 
 

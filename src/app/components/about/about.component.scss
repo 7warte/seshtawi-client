@@ -107,12 +107,17 @@
      display: none;
      &.active{
       display: unset;
+      overflow: hidden;
      }
      #bg_animation{
+    
+      opacity: 0;
       animation: appear 0.6s forwards;
+        transition: all 0.6s;
       position: absolute;
       top: 0;
       left: 0;
+      
      }
 
       }
