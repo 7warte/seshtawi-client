@@ -41,36 +41,32 @@ export class AboutComponent {
 screens:any=[
   {id:1,active:true,name:'floating cubes'},
   {id:2,active:false,name: 'labels'},
-  {id:3,active:false, name:'elettric?1'}
+  // {id:3,active:false, name:'elettric?1'}
 ]
 
+currentlyActiveScreen = {index:null, name:''}
 
+ngOnInit()
+{
+   this.currentlyActiveScreen.name =this.screens[0].name
+  this.currentlyActiveScreen.index =this.screens[0].id
+}
 screenSwitcher(value:number){
 
-  
   let currentlyActiveIndex = this.screens.findIndex((screen:any)=> screen.active);
-
-console.log(currentlyActiveIndex);
-
 this.screens.forEach((screen:any)=> screen.active=false);
 
-
 var newActiveIndex = currentlyActiveIndex + value
-
-
 if(newActiveIndex>this.screens.length-1){
 newActiveIndex=0
 }else if(newActiveIndex<0){
   newActiveIndex = this.screens.length-1
 }
 
-console.log(newActiveIndex);
-
+ this.currentlyActiveScreen.name =this.screens[newActiveIndex].name
+  this.currentlyActiveScreen.index =this.screens[newActiveIndex].id
 
 this.screens[newActiveIndex].active = true
-
-
-
 
 
 
@@ -169,7 +165,7 @@ this.sections.forEach((section: any) => {
 
 
   navigationBanners = [
-    {name:'My code' ,active:true,path:'code'},
+    {name:'Links' ,active:true,path:'links'},
     {name:'My articles ' ,active:true,path:'articles'},
     {name:'My shots' ,active :true,path:'shots'}
 

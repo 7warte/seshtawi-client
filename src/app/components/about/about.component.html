@@ -3,8 +3,26 @@
 
    <div #sections class="section a">
     <div id="screen-switcher">
-           <button (click)="screenSwitcher(-1)" id="down">minus</button>
-      <button (click)="screenSwitcher(1)" id="up">plus</button>
+
+  
+
+      <div class="actions">
+           <button (click)="screenSwitcher(-1)" id="down"> < </button>
+           <div class="indicators">
+            <!-- <p class="name" >{{currentlyActiveScreen.name}}</p> -->
+             
+<div id="indicators-wrapper">
+    <div
+    [ngClass]="{active:currentlyActiveScreen.index===i +1}"
+    class="indicator" *ngFor="let indicator of this.screens; let i = index">
+        
+      </div>
+</div>
+           </div>
+      <button (click)="screenSwitcher(1)" id="up">></button>
+      </div>
+
+
 
     </div>
     <div [ngClass]="{active:screens[0].active===true}" class="screen">
@@ -95,7 +113,7 @@
       </div>
     </div>
     </div>
-    <div [ngClass]="{active:screens[2].active===true}"  class="screen">Work in progress</div>
+    <!-- <div [ngClass]="{active:screens[2].active===true}"  class="screen"></div> -->
    </div>
   <!-- <div #sections class="section a">
     

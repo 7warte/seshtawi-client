@@ -262,25 +262,7 @@ this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     console.log(width,'<---------');
     console.log(this.canvas.clientWidth);
-    
 
-    // if(this.cube_main){
-
-    // if(width < 800 ){
-
-   
-    //       this.cube_main.position.z = 0.5;
-    //   }else{
-    //      this.cube_main.position.z =1.8
-    //   }
-    
-    
-
-
-    
-
-    // }
-    
 
     this.renderer.setSize(width, height);
   }
