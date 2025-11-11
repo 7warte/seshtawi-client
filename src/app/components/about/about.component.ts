@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild, ViewChildren } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { BackgroundAnimationsService } from './background-animations.service';
+import e from 'express';
+import { findIndex } from 'rxjs';
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
@@ -36,6 +38,43 @@ export class AboutComponent {
   // positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   // position = new FormControl(this.positionOptions[0]);
 
+screens:any=[
+  {id:1,active:true,name:'floating cubes'},
+  {id:2,active:false,name: 'labels'},
+  {id:3,active:false, name:'elettric?1'}
+]
+
+
+screenSwitcher(value:number){
+
+  
+  let currentlyActiveIndex = this.screens.findIndex((screen:any)=> screen.active);
+
+console.log(currentlyActiveIndex);
+
+this.screens.forEach((screen:any)=> screen.active=false);
+
+
+var newActiveIndex = currentlyActiveIndex + value
+
+
+if(newActiveIndex>this.screens.length-1){
+newActiveIndex=0
+}else if(newActiveIndex<0){
+  newActiveIndex = this.screens.length-1
+}
+
+console.log(newActiveIndex);
+
+
+this.screens[newActiveIndex].active = true
+
+
+
+
+
+
+}
 
   ngAfterViewInit() {
 

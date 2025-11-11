@@ -1,24 +1,24 @@
 <!-- Section a -->
 <div class="component-wrapper">
-  <div #sections class="section a">
-    <canvas #bg_animation id="bg_animation" ></canvas>
-    <div class="text">
+
+   <div #sections class="section a">
+    <div id="screen-switcher">
+           <button (click)="screenSwitcher(-1)" id="down">minus</button>
+      <button (click)="screenSwitcher(1)" id="up">plus</button>
+
+    </div>
+    <div [ngClass]="{active:screens[0].active===true}" class="screen">
+        <canvas #bg_animation id="bg_animation" ></canvas>
+    </div>
+    <div [ngClass]="{active:screens[1].active===true}"  class="screen">
+      <div class="text">
       <h1>Marc.</h1>
       <span>
         Javascript web <br />
         programmer
       </span>
     </div>
-    <!-- <button
-    #tooltip="matTooltip"
-    mat-raised-button
-    matTooltip="Info about the action"
-    (click)="tooltip.toggle()"
-    matTooltipHideDelay="100000"
-    aria-label="Button that displays a tooltip that hides when scrolled out of the container"
-    class="example-button">
-Action
-</button> -->
+
 
     <div class="frameworks-logos">
       <div
@@ -94,35 +94,11 @@ Action
         <span>Figma</span>
       </div>
     </div>
-  </div>
-
-  <!-- section b -->
-
-  <!-- <div #sections class="section b">
-
-    <div class="b1">
-
-      <div class="title-wrapper" >
-        <h4>Design matters</h4>
-
-        <img src="assets/images/eye.png" />
-      </div>
-
     </div>
-    <div class="b2">
-      <span>
-        Design is crucial in web development because it directly impacts user experience and engagement. A well-designed
-        frontend ensures <span style="color:#364042; margin:0;"><b>intuitive navigation</b></span>, making it easy for users to find
-        what they need. It also enhances the
-        website’s visual appeal, which can build trust and <span style="color:#364042; margin:0;"><b>credibility</b></span> with
-        users. Good design improves accessibility,
-        ensuring the site is usable for everyone, including those with disabilities. Overall, effective design in web
-        development helps create a positive first impression, <span style="color:#364042; margin:0;"><b>encourages
-            interaction</b></span>, and ultimately drives conversions.
-      </span>
-    </div>
-
-
+    <div [ngClass]="{active:screens[2].active===true}"  class="screen">Work in progress</div>
+   </div>
+  <!-- <div #sections class="section a">
+    
   </div> -->
 
   <div #sections class="section b">
