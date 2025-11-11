@@ -186,7 +186,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
       }
 
       window.addEventListener('resize', () => {
-        this.resize();
+        // this.resize();
       });
     });
   }
