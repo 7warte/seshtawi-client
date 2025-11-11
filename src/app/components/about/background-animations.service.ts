@@ -120,51 +120,59 @@ cube_node_image.magFilter = THREE.LinearFilter;
     const textureJavascript = new THREE.MeshStandardMaterial({ map: cube_javascript_image });
     const textureDocker = new THREE.MeshStandardMaterial({ map: cube_docker_image });
     const textureNode = new THREE.MeshStandardMaterial({ map: cube_node_image });
+
+
+    console.log(window.innerWidth,'<--------');
+
+    var viewMode = window.innerWidth > 1200 ? 'desktop' : 'mobile'
+    
+
+
     //cube main
 
 
     this.cube_main = new THREE.Mesh(geometry, textureMain);
-    this.cube_main.position.y = 1;
-    this.cube_main.position.z = 1.8;
+    this.cube_main.position.y = viewMode ==='mobile' ? 1.9 : 1;
+    this.cube_main.position.z = viewMode ==='mobile' ? 0.8 : 1.8;
     this.scene.add(this.cube_main);
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
-    this.cube_angular.position.y = 2;
-    this.cube_angular.position.x = -10.2;
-    this.cube_angular.position.z = -6.2;
+    this.cube_angular.position.y = viewMode ==='mobile' ? 1.5 : 2;
+    this.cube_angular.position.x =  viewMode ==='mobile' ? -3 : -10.2;
+    this.cube_angular.position.z = viewMode ==='mobile' ? -5 : -6.2;
     this.scene.add(this.cube_angular);
 
     this.cube_react = new THREE.Mesh(geometry, textureReact);
-    this.cube_react.position.y = 1;
-    this.cube_react.position.x = 5.2;
+    this.cube_react.position.y = viewMode ==='mobile' ? -0.8 : 1;
+    this.cube_react.position.x = viewMode ==='mobile' ? 3 : 5.2;
     this.cube_react.position.z = -6.2;
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
-    this.cube_figma.position.y = -2;
-    this.cube_figma.position.x = -8.2;
+    this.cube_figma.position.y = viewMode ==='mobile' ? -1.7 : -2;
+    this.cube_figma.position.x = viewMode ==='mobile' ? 0.3 : 8.8;
     this.cube_figma.position.z = -5.8;
     this.scene.add(this.cube_figma);
 
     this.cube_js = new THREE.Mesh(geometry, textureJavascript);
 
-    this.cube_js.position.y = 0;
-    this.cube_js.position.x = -4.2;
+    this.cube_js.position.y = viewMode ==='mobile' ? -0.5 : 0;;
+    this.cube_js.position.x = viewMode ==='mobile' ? -2.6 : -4.2;
     this.cube_js.position.z = -4.2;
     this.scene.add(this.cube_js);
 
 
     this.cube_docker = new THREE.Mesh(geometry, textureDocker);
-    this.cube_docker.position.y = -1.5;
-    this.cube_docker.position.x = 7.2;
+    this.cube_docker.position.y = viewMode ==='mobile' ? -0.7 : -1.5;
+    this.cube_docker.position.x = viewMode ==='mobile' ? 0 : -7.2;
     this.cube_docker.position.z = -4.7;
     this.scene.add(this.cube_docker);
 
 
     // cube react  cube_express              
     this.cube_node = new THREE.Mesh(geometry, textureNode);
-    this.cube_node.position.y = -1.5;
+    this.cube_node.position.y = viewMode ==='mobile' ? 1 : -1.5;
     this.cube_node.position.x = 3.2;
     this.cube_node.position.z = -5.2;
     this.scene.add(this.cube_node);
@@ -186,7 +194,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
       }
 
       window.addEventListener('resize', () => {
-        // this.resize();
+        this.resize();
       });
     });
   }
@@ -247,9 +255,32 @@ this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     if (this.camera) {
 
       this.camera.aspect = width / height;
+
+      
       this.camera.updateProjectionMatrix();
     }
 
+    console.log(width,'<---------');
+    console.log(this.canvas.clientWidth);
+    
+
+    // if(this.cube_main){
+
+    // if(width < 800 ){
+
+   
+    //       this.cube_main.position.z = 0.5;
+    //   }else{
+    //      this.cube_main.position.z =1.8
+    //   }
+    
+    
+
+
+    
+
+    // }
+    
 
     this.renderer.setSize(width, height);
   }
