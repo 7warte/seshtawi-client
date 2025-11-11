@@ -127,12 +127,8 @@ cube_node_image.magFilter = THREE.LinearFilter;
     var viewMode = window.innerWidth > 1200 ? 'desktop' : 'mobile'
     
 
-
-    //cube main
-
-
     this.cube_main = new THREE.Mesh(geometry, textureMain);
-    this.cube_main.position.y = viewMode ==='mobile' ? 2.4 : 1;
+    this.cube_main.position.y = viewMode ==='mobile' ? 2 : 1;
     this.cube_main.position.z = viewMode ==='mobile' ? 0.8 : 1.8;
     this.scene.add(this.cube_main);
 
@@ -140,13 +136,13 @@ cube_node_image.magFilter = THREE.LinearFilter;
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
     this.cube_angular.position.y = viewMode ==='mobile' ? 1.5 : 2;
     this.cube_angular.position.x =  viewMode ==='mobile' ? -3 : -10.2;
-    this.cube_angular.position.z = viewMode ==='mobile' ? -5 : -6.2;
+    this.cube_angular.position.z = viewMode ==='mobile' ? -3. : -6.2;
     this.scene.add(this.cube_angular);
 
     this.cube_react = new THREE.Mesh(geometry, textureReact);
     this.cube_react.position.y = viewMode ==='mobile' ? -0.8 : 1;
     this.cube_react.position.x = viewMode ==='mobile' ? 3 : 5.2;
-    this.cube_react.position.z = -6.2;
+    this.cube_react.position.z = viewMode ==='mobile' ? -3.23 : -6.2;
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
@@ -157,7 +153,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
 
     this.cube_js = new THREE.Mesh(geometry, textureJavascript);
 
-    this.cube_js.position.y = viewMode ==='mobile' ? -0.5 : 0;;
+    this.cube_js.position.y = viewMode ==='mobile' ? 0.3 : 0;;
     this.cube_js.position.x = viewMode ==='mobile' ? -2.6 : -4.2;
     this.cube_js.position.z = -4.2;
     this.scene.add(this.cube_js);
