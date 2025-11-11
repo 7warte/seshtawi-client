@@ -19,6 +19,8 @@ export class BackgroundAnimationsService {
   private cube_docker: THREE.Mesh | undefined;
   private cube_figma: THREE.Mesh | undefined;
 
+    private cylinder: THREE.Mesh | undefined;
+
   private frameId: any = null;
 
 
@@ -107,6 +109,7 @@ cube_node_image.magFilter = THREE.LinearFilter;
     // this.scene.add(new THREE.AmbientLight(0xffffff, 0));
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const geometry_main = new THREE.BoxGeometry(3, 3, 3);
 
     //
     // const material = new THREE.MeshStandardMaterial({ color:'yellow'});
@@ -127,53 +130,72 @@ cube_node_image.magFilter = THREE.LinearFilter;
     var viewMode = window.innerWidth > 1200 ? 'desktop' : 'mobile'
     
 
-    this.cube_main = new THREE.Mesh(geometry, textureMain);
-    this.cube_main.position.y = viewMode ==='mobile' ? 2 : 1;
-    this.cube_main.position.z = viewMode ==='mobile' ? 0.8 : 1.8;
+
+    //cube main
+
+        // var viewMode = 'mobile'
+
+
+    this.cube_main = new THREE.Mesh(geometry_main, textureMain);
+    this.cube_main.position.y = viewMode ==='mobile' ? 2.5 : 3.8;
+    this.cube_main.position.z = viewMode ==='mobile' ? -3.8 : -6.2;
     this.scene.add(this.cube_main);
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
-    this.cube_angular.position.y = viewMode ==='mobile' ? 1.5 : 2;
-    this.cube_angular.position.x =  viewMode ==='mobile' ? -3 : -10.2;
-    this.cube_angular.position.z = viewMode ==='mobile' ? -3. : -6.2;
+    this.cube_angular.position.y = viewMode ==='mobile' ? 0 : 1.4;
+    this.cube_angular.position.x =  viewMode ==='mobile' ? -3.9 : 0;
+    this.cube_angular.position.z = viewMode ==='mobile' ? -4.6 : -6.2;
     this.scene.add(this.cube_angular);
 
     this.cube_react = new THREE.Mesh(geometry, textureReact);
-    this.cube_react.position.y = viewMode ==='mobile' ? -0.8 : 1;
-    this.cube_react.position.x = viewMode ==='mobile' ? 3 : 5.2;
-    this.cube_react.position.z = viewMode ==='mobile' ? -3.23 : -6.2;
+    this.cube_react.position.y = viewMode ==='mobile' ? 0 : 0.2;
+    this.cube_react.position.x = viewMode ==='mobile' ? -2.4 : 0;
+    this.cube_react.position.z = viewMode ==='mobile' ? -4.6: -6.2;
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
-    this.cube_figma.position.y = viewMode ==='mobile' ? -0.4 : -2;
-    this.cube_figma.position.x = viewMode ==='mobile' ? 0.3 : 8.8;
-    this.cube_figma.position.z = -5.8;
+    this.cube_figma.position.y = viewMode ==='mobile' ? 0 : -1;
+    this.cube_figma.position.x = viewMode ==='mobile' ? -0.9 : 0;
+    this.cube_figma.position.z = viewMode ==='mobile' ? -4.6 : -6.2;
     this.scene.add(this.cube_figma);
 
     this.cube_js = new THREE.Mesh(geometry, textureJavascript);
 
-    this.cube_js.position.y = viewMode ==='mobile' ? 0.3 : 0;;
-    this.cube_js.position.x = viewMode ==='mobile' ? -2.6 : -4.2;
-    this.cube_js.position.z = -4.2;
+    this.cube_js.position.y = viewMode ==='mobile' ?0 : -2.2;
+    this.cube_js.position.x = viewMode ==='mobile' ? 0.6 : 0;
+    this.cube_js.position.z = viewMode ==='mobile' ? -4.6 : -6.2;
     this.scene.add(this.cube_js);
 
-
     this.cube_docker = new THREE.Mesh(geometry, textureDocker);
-    this.cube_docker.position.y = viewMode ==='mobile' ? 1.7 : -1.5;
-    this.cube_docker.position.x = viewMode ==='mobile' ? 0 : -7.2;
-    this.cube_docker.position.z = -4.7;
+    this.cube_docker.position.y = viewMode ==='mobile' ? 0 : -3.4;
+    this.cube_docker.position.x = viewMode ==='mobile' ?2.1 : 0;
+    this.cube_docker.position.z = viewMode ==='mobile' ? -4.6 : -6.2;
     this.scene.add(this.cube_docker);
-
 
     // cube react  cube_express              
     this.cube_node = new THREE.Mesh(geometry, textureNode);
-    this.cube_node.position.y = viewMode ==='mobile' ? 1 : -1.5;
-    this.cube_node.position.x = 3.2;
-    this.cube_node.position.z = -5.2;
+    this.cube_node.position.y = viewMode ==='mobile' ? 0 : -4.6;
+    this.cube_node.position.x = viewMode ==='mobile' ? 3.6 : 0;
+    this.cube_node.position.z = viewMode ==='mobile' ? -4.6 : -6.2;
     this.scene.add(this.cube_node);
 
+    //cylinder
 
+    const geometry_cylinder = new THREE.CylinderGeometry( 0.11, 0.11, 8,100,);
+const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+
+const material_cylinder = new THREE.MeshNormalMaterial({wireframe:true, wireframeLinewidth:100})
+ this.cylinder = new THREE.Mesh( geometry_cylinder, material_cylinder );
+
+
+
+
+this.cylinder.position.z =-6.6
+// this.cylinder.position.x =0
+this.cylinder.position.y =-1.2
+
+viewMode === 'desktopt' ? this.scene.add( this.cylinder ) : null
 
   }
 
@@ -200,29 +222,29 @@ cube_node_image.magFilter = THREE.LinearFilter;
       this.render();
     });
     if (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node) {
-      this.cube_main.rotation.x += -0.0015;
-      this.cube_main.rotation.y += 0.0019;
+      // this.cube_main.rotation.x += -0.010;
+      this.cube_main.rotation.y += 0.019;
 
       //
-      this.cube_angular.rotation.x += 0.0018;
-      this.cube_angular.rotation.y += 0.0017;
+      // this.cube_angular.rotation.x += 0.0018;
+      this.cube_angular.rotation.y += 0.0019;
       //
-      this.cube_docker.rotation.x += 0.0015;
-      this.cube_docker.rotation.y += -0.0019;
+      // this.cube_docker.rotation.x += 0.0015;
+      this.cube_docker.rotation.y += 0.0019;
       //
-      this.cube_figma.rotation.x += -0.0018;
-      this.cube_figma.rotation.y += -0.001;
+      // this.cube_figma.rotation.x += -0.0018;
+      this.cube_figma.rotation.y += 0.0019;
 
-      this.cube_js.rotation.x += -0.001;
-      this.cube_js.rotation.y += 0.001;
-
-
-      this.cube_react.rotation.x += -0.0018;
-      this.cube_react.rotation.y += -0.001;
+      // this.cube_js.rotation.x += -0.001;
+      this.cube_js.rotation.y += 0.0019;
 
 
-      this.cube_node.rotation.x += -0.0017;
-      this.cube_node.rotation.y += 0.0018;
+      // this.cube_react.rotation.x += -0.0018;
+      this.cube_react.rotation.y += 0.0019;
+
+
+      // this.cube_node.rotation.x += -0.0017;
+      this.cube_node.rotation.y += 0.0019;
 
 
 this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
