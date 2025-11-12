@@ -62,15 +62,15 @@ export class BackgroundAnimationsService {
     this.camera = new THREE.PerspectiveCamera(
       75, window.innerWidth / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.z = 1.5;
+    this.camera.position.z = 3;
 
-      this.camera.position.y = 0.2;
+      this.camera.position.y = 0.8;
     this.scene.add(this.camera);
 
     // soft white light
     this.light = new THREE.AmbientLight(0xdef456);
     this.light.position.z = 10;
-    this.scene.add(this.light);
+    // this.scene.add(this.light);
 
     const cube_main_image: any = this.imageLoader.load('/assets/images/cube_texture_main.png');
     const cube_angular_image: any = this.imageLoader.load('/assets/images/cube_texture_angular.png');
@@ -132,11 +132,11 @@ cube_azure_image.minFilter = THREE.LinearMipmapLinearFilter;
 cube_azure_image.magFilter = THREE.LinearFilter;
 
 
-    const dirLight = new THREE.DirectionalLight(0x5B6D92, 8);
+    const dirLight = new THREE.DirectionalLight(0x7C727D, 7);
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
     dirLight.position.set(0, 0, 1);
     this.scene.add(dirLight);
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.61));
+    // this.scene.add(new THREE.AmbientLight(0xffffff, 0.61));
     const geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
         const geometry_main = new THREE.BoxGeometry(1.4, 1.4, 1.4);
 
@@ -272,7 +272,7 @@ cube_azure_image.magFilter = THREE.LinearFilter;
     });
     if (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) {
       // this.cube_main.rotation.x += -0.010;
-      this.cube_main.rotation.y += 0.003;
+      this.cube_main.rotation.y += 0.009;
 
       //
       // this.cube_angular.rotation.x += 0.0018;
