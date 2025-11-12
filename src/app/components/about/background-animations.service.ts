@@ -12,6 +12,9 @@ export class BackgroundAnimationsService {
   private light!: THREE.AmbientLight;
 
   private cube_main: THREE.Mesh | undefined;
+
+  private sphere_main:THREE.Mesh |undefined
+
   private cube_react: THREE.Mesh | undefined;
   private cube_angular: THREE.Mesh | undefined;
   private cube_node: THREE.Mesh | undefined;
@@ -44,6 +47,7 @@ export class BackgroundAnimationsService {
   }
 
   imageLoader: any = new THREE.TextureLoader()
+  textureLoader:any = new THREE.TextureLoader()
 
   public createScene(canvas: any): void {
     // The first step is to get the reference of the canvas element from our HTML document
@@ -62,9 +66,9 @@ export class BackgroundAnimationsService {
     this.camera = new THREE.PerspectiveCamera(
       75, window.innerWidth / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.z = 3;
+    this.camera.position.z = 0;
 
-      this.camera.position.y = 0.8;
+      this.camera.position.y = 0;
     this.scene.add(this.camera);
 
     // soft white light
@@ -72,75 +76,225 @@ export class BackgroundAnimationsService {
     this.light.position.z = 10;
     // this.scene.add(this.light);
 
-    const cube_main_image: any = this.imageLoader.load('/assets/images/cube_texture_main.png');
-    const cube_angular_image: any = this.imageLoader.load('/assets/images/cube_texture_angular.png');
-    const cube_react_image: any = this.imageLoader.load('/assets/images/cube_texture_react.png');
-    const cube_figma_image: any = this.imageLoader.load('/assets/images/cube_texture_figma.png');
-    const cube_javascript_image: any = this.imageLoader.load('/assets/images/cube_texture_javascript.png');
-    const cube_docker_image: any = this.imageLoader.load('/assets/images/cube_texture_docker.png');
-    const cube_node_image: any = this.imageLoader.load('/assets/images/cube_texture_nodejs.png');
-
-        const cube_html5_image: any = this.imageLoader.load('/assets/images/cube_texture_html5.png');
-    const cube_mjml_image: any = this.imageLoader.load('/assets/images/cube_texture_mjml.png');
-    const cube_azure_image: any = this.imageLoader.load('/assets/images/cube_texture_azure.png');
-    const cube_github_image: any = this.imageLoader.load('/assets/images/cube_texture_github.png');
-
-cube_main_image.colorSpace = THREE.SRGBColorSpace;
-cube_main_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_main_image.magFilter = THREE.LinearFilter;
 
 
-cube_angular_image.colorSpace = THREE.SRGBColorSpace;
-cube_angular_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_angular_image.magFilter = THREE.LinearFilter;
+   const texture = this.textureLoader.load('/assets/images/pattern.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+  texture.repeat.set(4, 2)
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+  texture.wrapS = THREE.RepeatWrapping; // repeat horizontally (U)
+  texture.wrapT = THREE.RepeatWrapping;
+
+    })
+
+    
+
+const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_texture_angular.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
 
 
-cube_react_image.colorSpace = THREE.SRGBColorSpace;
-cube_react_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_react_image.magFilter = THREE.LinearFilter;
-
-cube_figma_image.colorSpace = THREE.SRGBColorSpace;
-cube_figma_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_figma_image.magFilter = THREE.LinearFilter;
-
-cube_javascript_image.colorSpace = THREE.SRGBColorSpace;
-cube_javascript_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_javascript_image.magFilter = THREE.LinearFilter;
-
-cube_docker_image.colorSpace = THREE.SRGBColorSpace;
-cube_docker_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_docker_image.magFilter = THREE.LinearFilter;
-
-cube_node_image.colorSpace = THREE.SRGBColorSpace;
-cube_node_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_node_image.magFilter = THREE.LinearFilter;
-
-cube_html5_image.colorSpace = THREE.SRGBColorSpace;cube_mjml_image
-cube_html5_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_html5_image.magFilter = THREE.LinearFilter;
-
-cube_mjml_image.colorSpace = THREE.SRGBColorSpace;
-cube_mjml_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_mjml_image.magFilter = THREE.LinearFilter;
-
-cube_github_image.colorSpace = THREE.SRGBColorSpace;
-cube_github_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_github_image.magFilter = THREE.LinearFilter;
-
-cube_azure_image.colorSpace = THREE.SRGBColorSpace;
-cube_azure_image.minFilter = THREE.LinearMipmapLinearFilter;
-cube_azure_image.magFilter = THREE.LinearFilter;
+    const cube_figma_image: any =this.textureLoader.load('/assets/images/cube_texture_figma.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
 
 
-    const dirLight = new THREE.DirectionalLight(0x7C727D, 7);
+
+
+    const cube_react_image: any =this.textureLoader.load('/assets/images/cube_texture_react.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+
+
+
+
+    // const cube_figma_image: any = this.imageLoader.load('/assets/images/cube_texture_figma.png');
+    // const cube_javascript_image: any = this.imageLoader.load('/assets/images/cube_texture_javascript.png');
+    // const cube_docker_image: any = this.imageLoader.load('/assets/images/cube_texture_docker.png');
+    // const cube_node_image: any = this.imageLoader.load('/assets/images/cube_texture_nodejs.png');
+
+    //     const cube_html5_image: any = this.imageLoader.load('/assets/images/cube_texture_html5.png');
+    // const cube_mjml_image: any = this.imageLoader.load('/assets/images/cube_texture_mjml.png');
+    // const cube_azure_image: any = this.imageLoader.load('/assets/images/cube_texture_azure.png');
+    // const cube_github_image: any = this.imageLoader.load('/assets/images/cube_texture_github.png');
+
+
+    const cube_javascript_image: any =this.textureLoader.load('/assets/images/cube_texture_javascript.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    const cube_docker_image: any =this.textureLoader.load('/assets/images/cube_texture_docker.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    const cube_node_image: any =this.textureLoader.load('/assets/images/cube_texture_nodejs.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    const cube_html5_image: any =this.textureLoader.load('/assets/images/cube_texture_html5.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    const cube_mjml_image: any =this.textureLoader.load('/assets/images/cube_texture_mjml.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    const cube_azure_image: any =this.textureLoader.load('/assets/images/cube_texture_azure.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    const cube_github_image: any =this.textureLoader.load('/assets/images/cube_texture_github.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
+
+    
+
+
+    const sphere_main_image: any = this.imageLoader.load('/assets/images/cube_texture_main.png');
+    // // const cube_angular_image: any = this.imageLoader.load('/assets/images/cube_texture_angular.png');
+    // // const cube_react_image: any = this.imageLoader.load('/assets/images/cube_texture_react.png');
+    // const cube_figma_image: any = this.imageLoader.load('/assets/images/cube_texture_figma.png');
+    // const cube_javascript_image: any = this.imageLoader.load('/assets/images/cube_texture_javascript.png');
+    // const cube_docker_image: any = this.imageLoader.load('/assets/images/cube_texture_docker.png');
+    // const cube_node_image: any = this.imageLoader.load('/assets/images/cube_texture_nodejs.png');
+
+    //     const cube_html5_image: any = this.imageLoader.load('/assets/images/cube_texture_html5.png');
+    // const cube_mjml_image: any = this.imageLoader.load('/assets/images/cube_texture_mjml.png');
+    // const cube_azure_image: any = this.imageLoader.load('/assets/images/cube_texture_azure.png');
+    // const cube_github_image: any = this.imageLoader.load('/assets/images/cube_texture_github.png');
+
+// cube_main_image.colorSpace = THREE.SRGBColorSpace;
+// cube_main_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_main_image.magFilter = THREE.LinearFilter;
+
+
+
+// sphere_main_image.colorSpace = THREE.SRGBColorSpace;
+// sphere_main_image.minFilter = THREE.LinearMipmapLinearFilter;
+// sphere_main_image.magFilter = THREE.LinearFilter;
+
+
+// cube_angular_image.colorSpace = THREE.SRGBColorSpace;
+// cube_angular_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_angular_image.magFilter = THREE.LinearFilter;
+
+
+// cube_react_image.colorSpace = THREE.SRGBColorSpace;
+// cube_react_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_react_image.magFilter = THREE.LinearFilter;
+
+// cube_figma_image.colorSpace = THREE.SRGBColorSpace;
+// cube_figma_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_figma_image.magFilter = THREE.LinearFilter;
+
+// cube_javascript_image.colorSpace = THREE.SRGBColorSpace;
+// cube_javascript_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_javascript_image.magFilter = THREE.LinearFilter;
+
+// cube_docker_image.colorSpace = THREE.SRGBColorSpace;
+// cube_docker_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_docker_image.magFilter = THREE.LinearFilter;
+
+// cube_node_image.colorSpace = THREE.SRGBColorSpace;
+// cube_node_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_node_image.magFilter = THREE.LinearFilter;
+
+// cube_html5_image.colorSpace = THREE.SRGBColorSpace;cube_mjml_image
+// cube_html5_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_html5_image.magFilter = THREE.LinearFilter;
+
+// cube_mjml_image.colorSpace = THREE.SRGBColorSpace;
+// cube_mjml_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_mjml_image.magFilter = THREE.LinearFilter;
+
+// cube_github_image.colorSpace = THREE.SRGBColorSpace;
+// cube_github_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_github_image.magFilter = THREE.LinearFilter;
+
+// cube_azure_image.colorSpace = THREE.SRGBColorSpace;
+// cube_azure_image.minFilter = THREE.LinearMipmapLinearFilter;
+// cube_azure_image.magFilter = THREE.LinearFilter;
+
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 2);
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
-    dirLight.position.set(0, 0, 1);
+    dirLight.position.set(-0, 0.1, 0.1);
     this.scene.add(dirLight);
-    // this.scene.add(new THREE.AmbientLight(0xffffff, 0.61));
-    const geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
-        const geometry_main = new THREE.BoxGeometry(1.4, 1.4, 1.4);
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    const geometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
+        const geometry_main = new THREE.BoxGeometry(1.6, 1.6, 1.6);
 
-    const textureMain = new THREE.MeshStandardMaterial({ map: cube_main_image,
+    const textureMain = new THREE.MeshStandardMaterial({
 
 
      });
@@ -150,7 +304,6 @@ cube_azure_image.magFilter = THREE.LinearFilter;
     const textureJavascript = new THREE.MeshStandardMaterial({ map: cube_javascript_image });
     const textureDocker = new THREE.MeshStandardMaterial({ map: cube_docker_image });
     const textureNode = new THREE.MeshStandardMaterial({ map: cube_node_image });
-
     const textureHTML5= new THREE.MeshStandardMaterial({ map: cube_html5_image });
     const textureMJML = new THREE.MeshStandardMaterial({ map: cube_mjml_image });
     const textureAzure = new THREE.MeshStandardMaterial({ map: cube_azure_image });
@@ -165,13 +318,24 @@ cube_azure_image.magFilter = THREE.LinearFilter;
 
     //cube main
 
-        var viewMode = 'mobile'
+    const sphere_geometry = new THREE.SphereGeometry(0.3,64,32);
+    const sphere_material = new THREE.MeshStandardMaterial
+( {map:texture,normalMap:sphere_main_image});
+
+
+
+    this.sphere_main = new THREE.Mesh(sphere_geometry,sphere_material)
+    this.sphere_main.position.y = 0.2
+    this.sphere_main.position.z =-1.6 
+        this.scene.add( this.sphere_main );
+
+
 
 
     this.cube_main = new THREE.Mesh(geometry_main, textureMain);
     this.cube_main.position.y =2.5 
     this.cube_main.position.z = -4.6 
-    this.scene.add(this.cube_main);
+    // this.scene.add(this.cube_main);
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
@@ -270,36 +434,40 @@ cube_azure_image.magFilter = THREE.LinearFilter;
     this.frameId = requestAnimationFrame(() => {
       this.render();
     });
-    if (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) {
+    // (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) 
+    if (this.sphere_main) {
+
+
+      this.sphere_main.rotation.y += -0.01;
       // this.cube_main.rotation.x += -0.010;
-      this.cube_main.rotation.y += 0.009;
+      // this.cube_main.rotation.y += 0.009;
 
-      //
-      // this.cube_angular.rotation.x += 0.0018;
-      this.cube_angular.rotation.y += 0.0019;
-      //
-      // this.cube_docker.rotation.x += 0.0015;
-      this.cube_docker.rotation.y += 0.0019;
-      //
-      // this.cube_figma.rotation.x += -0.0018;
-      this.cube_figma.rotation.y += 0.0019;
+      // //
+      // // this.cube_angular.rotation.x += 0.0018;
+      // this.cube_angular.rotation.y += 0.0019;
+      // //
+      // // this.cube_docker.rotation.x += 0.0015;
+      // this.cube_docker.rotation.y += 0.0019;
+      // //
+      // // this.cube_figma.rotation.x += -0.0018;
+      // this.cube_figma.rotation.y += 0.0019;
 
-      // this.cube_js.rotation.x += -0.001;
-      this.cube_js.rotation.y += 0.0019;
+      // // this.cube_js.rotation.x += -0.001;
+      // this.cube_js.rotation.y += 0.0019;
 
 
-      // this.cube_react.rotation.x += -0.0018;
-      this.cube_react.rotation.y += 0.0019;
+      // // this.cube_react.rotation.x += -0.0018;
+      // this.cube_react.rotation.y += 0.0019;
 
 
       // this.cube_node.rotation.x += -0.0017;
-      this.cube_node.rotation.y += 0.0019;
+      // this.cube_node.rotation.y += 0.0019;
 
-            this.cube_github.rotation.y += 0.0019;
+            // this.cube_github.rotation.y += 0.0019;
 
-                 this.cube_html5.rotation.y += 0.0019;
-                 this.cube_mjml.rotation.y += 0.0019;
-                 this.cube_azure.rotation.y += 0.0019;
+            //      this.cube_html5.rotation.y += 0.0019;
+            //      this.cube_mjml.rotation.y += 0.0019;
+            //      this.cube_azure.rotation.y += 0.0019;
       
 
 
