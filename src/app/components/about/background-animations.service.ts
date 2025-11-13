@@ -78,7 +78,7 @@ export class BackgroundAnimationsService {
 
 
 
-   const texture = this.textureLoader.load('/assets/images/pattern.png',(texture:any)=>{
+   const texture = this.textureLoader.load('/assets/images/pattern_1.png',(texture:any)=>{
         texture.colorSpace = THREE.SRGBColorSpace;
         texture.minFilter = THREE.LinearMipmapLinearFilter;
         texture.magFilter = THREE.LinearFilter;
@@ -286,11 +286,11 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 // cube_azure_image.magFilter = THREE.LinearFilter;
 
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 3);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 2.4);
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
     dirLight.position.set(-0, 0.4, 0.1);
     this.scene.add(dirLight);
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    this.scene.add(new THREE.AmbientLight(0xdef567, 0.8));
     const geometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
         const geometry_main = new THREE.BoxGeometry(1.6, 1.6, 1.6);
 
