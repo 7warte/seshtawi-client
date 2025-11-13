@@ -72,9 +72,9 @@ export class BackgroundAnimationsService {
     this.scene.add(this.camera);
 
     // soft white light
-    this.light = new THREE.AmbientLight(0xdef456);
+    this.light = new THREE.AmbientLight(0xffffff,0.1);
     this.light.position.z = 10;
-    // this.scene.add(this.light);
+    this.scene.add(this.light);
 
 
 
@@ -216,11 +216,22 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     })
 
 
+    const cube_main_image: any =this.textureLoader.load('/assets/images/cube_texture_main_.png',(texture:any)=>{
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+    })
+
+
 
     
 
 
     const sphere_main_image: any = this.imageLoader.load('/assets/images/cube_texture_main.png');
+    
     // // const cube_angular_image: any = this.imageLoader.load('/assets/images/cube_texture_angular.png');
     // // const cube_react_image: any = this.imageLoader.load('/assets/images/cube_texture_react.png');
     // const cube_figma_image: any = this.imageLoader.load('/assets/images/cube_texture_figma.png');
@@ -290,14 +301,15 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
     dirLight.position.set(-0, 0.4, 0.1);
     this.scene.add(dirLight);
-    this.scene.add(new THREE.AmbientLight(0xdef567, 0.8));
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
     const geometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
-        const geometry_main = new THREE.BoxGeometry(1.6, 1.6, 1.6);
+        const geometry_main = new THREE.BoxGeometry(0.4, 0.4, 0.4);
 
-    const textureMain = new THREE.MeshStandardMaterial({
+//     const textureMain = new THREE.MeshStandardMaterial({
+// map: cube_react_image
 
-
-     });
+//      });
+     
     const textureAngular = new THREE.MeshStandardMaterial({ map: cube_angular_image });
     const textureReact = new THREE.MeshStandardMaterial({ map: cube_react_image });
     const textureFigma = new THREE.MeshStandardMaterial({ map: cube_figma_image });
@@ -308,6 +320,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     const textureMJML = new THREE.MeshStandardMaterial({ map: cube_mjml_image });
     const textureAzure = new THREE.MeshStandardMaterial({ map: cube_azure_image });
     const textureGithub = new THREE.MeshStandardMaterial({ map: cube_github_image });
+    const textureMain = new THREE.MeshStandardMaterial({map:cube_main_image})
 
 
     console.log(window.innerWidth,'<--------');
@@ -325,17 +338,17 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
 
     this.sphere_main = new THREE.Mesh(sphere_geometry,sphere_material)
-    this.sphere_main.position.y = 0.2
+    this.sphere_main.position.y = -0.2
     this.sphere_main.position.z =-1.6 
-        this.scene.add( this.sphere_main );
+        // this.scene.add( this.sphere_main );
 
 
 
 
     this.cube_main = new THREE.Mesh(geometry_main, textureMain);
-    this.cube_main.position.y =2.5 
-    this.cube_main.position.z = -4.6 
-    // this.scene.add(this.cube_main);
+    this.cube_main.position.y = 0.16
+    this.cube_main.position.z = -1.49 
+    this.scene.add(this.cube_main);
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
