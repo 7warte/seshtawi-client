@@ -74,7 +74,7 @@ export class BackgroundAnimationsService {
     // soft white light
     this.light = new THREE.AmbientLight(0xffffff,0.1);
     this.light.position.z = 10;
-    this.scene.add(this.light);
+    // this.scene.add(this.light);
 
 
 
@@ -297,11 +297,11 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 // cube_azure_image.magFilter = THREE.LinearFilter;
 
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 2.4);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
-    dirLight.position.set(-0, 0.4, 0.1);
+    dirLight.position.set(0.3, 0.2, 0.3);
     this.scene.add(dirLight);
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.6));
     const geometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
         const geometry_main = new THREE.BoxGeometry(0.4, 0.4, 0.4);
 
@@ -352,7 +352,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
-    this.cube_angular.position.y = 1.5 
+    this.cube_angular.position.y = 1.7 
     this.cube_angular.position.x = -0.8
     this.cube_angular.position.z = -4.2 
     this.scene.add(this.cube_angular);
@@ -391,7 +391,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.scene.add(this.cube_github);
         this.cube_node = new THREE.Mesh(geometry, textureNode);
     this.cube_node.position.y =0.1 
-    this.cube_node.position.x =  -1
+    this.cube_node.position.x =  -1.2
     this.cube_node.position.z = -3.6 
     this.scene.add(this.cube_node);
 
@@ -424,6 +424,8 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
 
   }
+
+  private cubeMainDir = -1;
 private cubeAngularDir = -1;
 private cubeReactDir = -1;
 private cubeFigmaDir = -1;
@@ -458,9 +460,19 @@ private cubeAzureDir = -1;
       this.render();
     });
     // (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) 
-    if (this.sphere_main &&  this.cube_azure && this.cube_html5 && this.cube_angular && this.cube_react && this.cube_figma && this.cube_js && this.cube_docker && this.cube_github && this.cube_node && this.cube_mjml) {
+    if (this.sphere_main &&  this.cube_azure && this.cube_html5
+       && this.cube_angular && this.cube_react && this.cube_figma && this.cube_js && this.cube_docker && this.cube_github && this.cube_node && this.cube_mjml && this.cube_main) {
+
+// console.log(this.cube_main.rotation.y);
 
 
+if (this.cube_main.rotation.y <= -0.4) {
+  this.cubeMainDir = 1;
+}
+if (this.cube_main.rotation.y >= 0.4) {
+  this.cubeMainDir = -1;
+}
+this.cube_main.rotation.y += 0.00068 * this.cubeMainDir;
 
 // ANGULAR (rest: 1.5 -> 1.50 to 1.52)
 if (this.cube_angular.position.y <= 1.50) {

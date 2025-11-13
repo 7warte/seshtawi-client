@@ -27,7 +27,7 @@ export class AboutComponent {
   @ViewChildren('skills') skills: ElementRef | undefined | any;
   @ViewChildren('sections') sections: any
 
-
+@ViewChild('binary') binary:any;
 
     @ViewChild('bg_animation') bg_animation:any;
 
@@ -68,17 +68,40 @@ newActiveIndex=0
 
 this.screens[newActiveIndex].active = true
 
+}
 
+ generateBinary(){
+  let str = "";
+  for ( var i = 0; i < 10500; i++ ) {
+    str = str + Math.round(Math.random());
+  }
+
+  this.binary.nativeElement.innerHTML =str
+}
+
+ updateBinary() {
+  let str = this.binary.nativeElement.innerHTML
+  let n = str.length;
+ let  r = Math.floor(Math.random() * n + 1)
+   this.binary.nativeElement.innerHTML=str.substring(0, r) + Math.round(Math.random()) + str.substring(r + 1);
+
+   setTimeout(() => {
+       this.generateBinary()
+   this.updateBinary()    
+   }, 100);
 
 }
 
   ngAfterViewInit() {
 
 
-    console.log(this.bg_animation);
     
 this.backgroundAnimation.createScene(this.bg_animation)
 this.backgroundAnimation.animate()
+
+
+    this.generateBinary()
+this.updateBinary()
 
     let options = {
       threshold: 0.45 // Adjust this value as needed (0 to 1)

@@ -25,7 +25,8 @@
 
 
     </div>
-    <div [ngClass]="{active:screens[0].active===true}" class="screen">
+    <div  [ngClass]="{active:screens[0].active===true}" class="screen">
+      <div #binary class="binary-bg"></div>
         <canvas #bg_animation id="bg_animation" ></canvas>
     </div>
     <div [ngClass]="{active:screens[1].active===true}"  class="screen">
