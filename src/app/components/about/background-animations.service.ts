@@ -288,7 +288,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
     const dirLight = new THREE.DirectionalLight(0xffffff, 3);
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
-    dirLight.position.set(-0, 0.1, 0.1);
+    dirLight.position.set(-0, 0.4, 0.1);
     this.scene.add(dirLight);
     this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
     const geometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
@@ -318,7 +318,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
     //cube main
 
-    const sphere_geometry = new THREE.SphereGeometry(0.3,64,32);
+    const sphere_geometry = new THREE.SphereGeometry(0.25,64,32);
     const sphere_material = new THREE.MeshStandardMaterial
 ( {map: texture,normalMap:sphere_main_image});
 
@@ -411,6 +411,16 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
 
   }
+private cubeAngularDir = -1;
+private cubeReactDir = -1;
+private cubeFigmaDir = -1;
+private cubeJsDir = -1;
+private cubeDockerDir = -1;
+private cubeGithubDir = -1;
+private cubeNodeDir = -1;
+private cubeHtml5Dir = -1;
+private cubeMjmlDir = -1;
+  
 private cubeAzureDir = -1;
   public animate(): void {
     // We have to run this outside angular zones,
@@ -435,20 +445,108 @@ private cubeAzureDir = -1;
       this.render();
     });
     // (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) 
-    if (this.sphere_main &&  this.cube_azure && this.cube_html5) {
+    if (this.sphere_main &&  this.cube_azure && this.cube_html5 && this.cube_angular && this.cube_react && this.cube_figma && this.cube_js && this.cube_docker && this.cube_github && this.cube_node && this.cube_mjml) {
 
 
 
-if (this.cube_azure.position.y <= -0.6) {
+// ANGULAR (rest: 1.5 -> 1.50 to 1.52)
+if (this.cube_angular.position.y <= 1.50) {
+  this.cubeAngularDir = 1;
+}
+if (this.cube_angular.position.y >= 1.52) {
+  this.cubeAngularDir = -1;
+}
+this.cube_angular.position.y += 0.00028 * this.cubeAngularDir;
+
+
+// REACT (rest: 1.0 -> 1.00 to 1.02)
+if (this.cube_react.position.y <= 1.00) {
+  this.cubeReactDir = 1;
+}
+if (this.cube_react.position.y >= 1.02) {
+  this.cubeReactDir = -1;
+}
+this.cube_react.position.y += 0.00028 * this.cubeReactDir;
+
+
+// FIGMA (rest: 1.8 -> 1.80 to 1.82)
+if (this.cube_figma.position.y <= 1.80) {
+  this.cubeFigmaDir = 1;
+}
+if (this.cube_figma.position.y >= 1.82) {
+  this.cubeFigmaDir = -1;
+}
+this.cube_figma.position.y += 0.00028 * this.cubeFigmaDir;
+
+
+// JS (rest: 1.6 -> 1.60 to 1.62)
+if (this.cube_js.position.y <= 1.60) {
+  this.cubeJsDir = 1;
+}
+if (this.cube_js.position.y >= 1.62) {
+  this.cubeJsDir = -1;
+}
+this.cube_js.position.y += 0.00028 * this.cubeJsDir;
+
+
+// DOCKER (rest: 1.0 -> 1.00 to 1.02)
+if (this.cube_docker.position.y <= 1.00) {
+  this.cubeDockerDir = 1;
+}
+if (this.cube_docker.position.y >= 1.02) {
+  this.cubeDockerDir = -1;
+}
+this.cube_docker.position.y += 0.00028 * this.cubeDockerDir;
+
+
+// GITHUB (rest: -0.6 -> -0.60 to -0.58)
+if (this.cube_github.position.y <= -0.60) {
+  this.cubeGithubDir = 1;
+}
+if (this.cube_github.position.y >= -0.58) {
+  this.cubeGithubDir = -1;
+}
+this.cube_github.position.y += 0.00028 * this.cubeGithubDir;
+
+
+// NODE (rest: 0.1 -> 0.10 to 0.12)
+if (this.cube_node.position.y <= 0.10) {
+  this.cubeNodeDir = 1;
+}
+if (this.cube_node.position.y >= 0.12) {
+  this.cubeNodeDir = -1;
+}
+this.cube_node.position.y += 0.00028 * this.cubeNodeDir;
+
+
+// HTML5 (rest: -0.6 -> -0.60 to -0.58)
+if (this.cube_html5.position.y <= -0.60) {
+  this.cubeHtml5Dir = 1;
+}
+if (this.cube_html5.position.y >= -0.58) {
+  this.cubeHtml5Dir = -1;
+}
+this.cube_html5.position.y += 0.00028 * this.cubeHtml5Dir;
+
+
+// MJML (rest: 0.0 -> 0.00 to 0.02)
+if (this.cube_mjml.position.y <= 0.00) {
+  this.cubeMjmlDir = 1;
+}
+if (this.cube_mjml.position.y >= 0.02) {
+  this.cubeMjmlDir = -1;
+}
+this.cube_mjml.position.y += 0.00028 * this.cubeMjmlDir;
+
+
+// AZURE (your original logic, unchanged)
+if (this.cube_azure.position.y <= -0.60) {
   this.cubeAzureDir = 1;   // start going up
 }
-
 if (this.cube_azure.position.y >= -0.58) {
   this.cubeAzureDir = -1;  // start going down
 }
-
 this.cube_azure.position.y += 0.00028 * this.cubeAzureDir;
-
 
 
 // if (this.cube_html5.position.y <= -0.6) {
