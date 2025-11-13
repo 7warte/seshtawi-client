@@ -286,7 +286,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 // cube_azure_image.magFilter = THREE.LinearFilter;
 
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 3);
         // const dirLight = new THREE.DirectionalLight(0xffffff, 2);
     dirLight.position.set(-0, 0.1, 0.1);
     this.scene.add(dirLight);
@@ -320,7 +320,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
     const sphere_geometry = new THREE.SphereGeometry(0.3,64,32);
     const sphere_material = new THREE.MeshStandardMaterial
-( {map:texture,normalMap:sphere_main_image});
+( {map: texture,normalMap:sphere_main_image});
 
 
 
@@ -339,54 +339,54 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
-    this.cube_angular.position.y =  1 
-    this.cube_angular.position.x = -2.38
-    this.cube_angular.position.z = -4.6 
+    this.cube_angular.position.y = 1.5 
+    this.cube_angular.position.x = -0.8
+    this.cube_angular.position.z = -4.2 
     this.scene.add(this.cube_angular);
 
     this.cube_react = new THREE.Mesh(geometry, textureReact);
     this.cube_react.position.y = 1
     this.cube_react.position.x = -1.21
-    this.cube_react.position.z = -4.6
+    this.cube_react.position.z = -3.6
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
-    this.cube_figma.position.y =  1 
+    this.cube_figma.position.y =  1.8 
     this.cube_figma.position.x =  0 
-    this.cube_figma.position.z =  -4.6 
+    this.cube_figma.position.z =  -3.6 
     this.scene.add(this.cube_figma);
 
     this.cube_js = new THREE.Mesh(geometry, textureJavascript);
 
-    this.cube_js.position.y = 1
-    this.cube_js.position.x =  1.2
-    this.cube_js.position.z = -4.6 
+    this.cube_js.position.y = 1.6
+    this.cube_js.position.x =  0.9
+    this.cube_js.position.z = -4 
     this.scene.add(this.cube_js);
 
     this.cube_docker = new THREE.Mesh(geometry, textureDocker);
     this.cube_docker.position.y =   1 
-    this.cube_docker.position.x = 2.4
+    this.cube_docker.position.x = 1.4
     this.cube_docker.position.z = -4.6 ;
     this.scene.add(this.cube_docker);
 
     // cube react  cube_express              
 
     this.cube_github = new THREE.Mesh(geometry, textureGithub);
-    this.cube_github.position.y =0 
-    this.cube_github.position.x =  -2.6
-    this.cube_github.position.z = -3.6 
+    this.cube_github.position.y =-0.6 
+    this.cube_github.position.x =  -.6
+    this.cube_github.position.z = -3.3 
     this.scene.add(this.cube_github);
         this.cube_node = new THREE.Mesh(geometry, textureNode);
-    this.cube_node.position.y =-0 
-    this.cube_node.position.x =  -1.3
+    this.cube_node.position.y =0.1 
+    this.cube_node.position.x =  -1
     this.cube_node.position.z = -3.6 
     this.scene.add(this.cube_node);
 
 
     this.cube_html5 = new THREE.Mesh(geometry, textureHTML5);
-    this.cube_html5.position.y =  -0 
-    this.cube_html5.position.x =  0 
-    this.cube_html5.position.z =  -3.6 
+    this.cube_html5.position.y =  -0.6 
+    this.cube_html5.position.x =  0.2 
+    this.cube_html5.position.z =  -4.2 
     this.scene.add(this.cube_html5);
 
     this.cube_mjml = new THREE.Mesh(geometry, textureMJML);
@@ -396,8 +396,8 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.scene.add(this.cube_mjml);
 
     this.cube_azure = new THREE.Mesh(geometry, textureAzure);
-    this.cube_azure.position.y =   -0
-    this.cube_azure.position.x = 2.7
+    this.cube_azure.position.y =   -0.6
+    this.cube_azure.position.x = .8
     this.cube_azure.position.z = -3.6 ;
     this.scene.add(this.cube_azure);
 
@@ -411,7 +411,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
 
   }
-
+private cubeAzureDir = -1;
   public animate(): void {
     // We have to run this outside angular zones,
     // because it could trigger heavy changeDetection cycles.
@@ -435,7 +435,34 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
       this.render();
     });
     // (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) 
-    if (this.sphere_main) {
+    if (this.sphere_main &&  this.cube_azure && this.cube_html5) {
+
+
+
+if (this.cube_azure.position.y <= -0.6) {
+  this.cubeAzureDir = 1;   // start going up
+}
+
+if (this.cube_azure.position.y >= -0.58) {
+  this.cubeAzureDir = -1;  // start going down
+}
+
+this.cube_azure.position.y += 0.00028 * this.cubeAzureDir;
+
+
+
+// if (this.cube_html5.position.y <= -0.6) {
+//   this.cubeAzureDir = 1;   // start going up
+// }
+
+// if (this.cube_html5.position.y >= -0.58) {
+//   this.cubeAzureDir = -1;  // start going down
+// }
+
+// this.cube_html5.position.y += 0.00028 * this.cubeAzureDir;
+
+
+
 
 
       this.sphere_main.rotation.y += -0.01;
