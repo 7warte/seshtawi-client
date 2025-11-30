@@ -72,23 +72,60 @@ this.screens[newActiveIndex].active = true
 
  generateBinary(){
   let str = "";
-  for ( var i = 0; i < 10500; i++ ) {
+  for ( var i = 0; i < 15500; i++ ) {
     str = str + Math.round(Math.random());
   }
 
-  this.binary.nativeElement.innerHTML =str
+
+let test =  str.slice(0,150) + '<span style="color:yellow;opacity:1">WELCOME_TO_MY_BLOG</span>'  + str 
+
+// console.log(test);
+
+
+  // console.log(str);
+     setTimeout(() => {
+       this.generateBinary()
+  //  this.updateBinary()    
+   }, 100);
+  
+
+  this.binary.nativeElement.innerHTML = test
 }
 
- updateBinary() {
-  let str = this.binary.nativeElement.innerHTML
-  let n = str.length;
- let  r = Math.floor(Math.random() * n + 1)
-   this.binary.nativeElement.innerHTML=str.substring(0, r) + Math.round(Math.random()) + str.substring(r + 1);
+//  updateBinary() {
+//   let str = this.binary.nativeElement.innerHTML
+//   let n = str.length;
+//  let  r = Math.floor(Math.random() * n + 1)
+//    this.binary.nativeElement.innerHTML=str.substring(0, r) + Math.round(Math.random()) + str.substring(r + 1);
 
-   setTimeout(() => {
-       this.generateBinary()
-   this.updateBinary()    
-   }, 100);
+
+
+//    setTimeout(() => {
+//        this.generateBinary()
+//   //  this.updateBinary()    
+//    }, 100);
+
+// }
+
+
+onCanvasClick(event:any){
+
+  let canvasHeight = this.bg_animation.nativeElement.offsetHeight;
+    let canvasWidth = this.bg_animation.nativeElement.offsetWidth
+  let clickedPointY = event.offsetY 
+    let clickedPointX = event.offsetX
+  const percentageClick_Y =(canvasHeight/100)*clickedPointY/100 ;
+
+  const percentageClick_X = clickedPointX
+
+// console.log(percentageClick_Y,'YYY');
+console.log(percentageClick_X/canvasWidth *100);
+
+// console.log(canvasWidth,'total');
+
+
+
+  
 
 }
 
@@ -101,7 +138,7 @@ this.backgroundAnimation.animate()
 
 
     this.generateBinary()
-this.updateBinary()
+// this.updateBinary()
 
     let options = {
       threshold: 0.45 // Adjust this value as needed (0 to 1)

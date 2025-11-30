@@ -60,6 +60,11 @@ export class BackgroundAnimationsService {
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
+    console.log(window,'-=-=');
+    console.log(window.innerWidth);
+    
+    
+
     // create the scene
     this.scene = new THREE.Scene();
 
@@ -67,8 +72,7 @@ export class BackgroundAnimationsService {
       75, window.innerWidth / window.innerHeight, 0.1, 1000
     );
     this.camera.position.z = 0;
-
-      this.camera.position.y = 0;
+    this.camera.position.y = 0;
     this.scene.add(this.camera);
 
     // soft white light
@@ -352,10 +356,14 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
 
     // cube angular                 
     this.cube_angular = new THREE.Mesh(geometry, textureAngular);
+
+
     this.cube_angular.position.y = 1.7 
     this.cube_angular.position.x = -0.8
     this.cube_angular.position.z = -4.2 
+    this.cube_angular.name='cube_angular'
     this.scene.add(this.cube_angular);
+
 
     this.cube_react = new THREE.Mesh(geometry, textureReact);
     this.cube_react.position.y = 1
@@ -437,7 +445,59 @@ private cubeHtml5Dir = -1;
 private cubeMjmlDir = -1;
   
 private cubeAzureDir = -1;
+
+///testing
+private raycaster:any = new THREE.Raycaster();
+private mouse:any = new THREE.Vector2();
+private hoveredObject: THREE.Object3D | null = null;
+
+private onMouseMove = (event: MouseEvent) => {
+  if (!this.renderer) {
+    return;
+  }
+
+  const rect = (this.renderer.domElement as HTMLCanvasElement).getBoundingClientRect();
+
+//   const rect = {
+//   left: 100,
+//   top: 50,
+//   width: 800,
+//   height: 600
+// };
+
+  // Normalized device coordinates [-1, 1]
+  this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+  
+};
+
+
+// testing
+
+
+
+
+
   public animate(): void {
+
+console.log('o');
+
+    console.log(this.scene, true);
+
+
+    // if(this.scene){
+    // let raycaster_angular:any = new THREE.Raycaster().intersectObjects(this.scene.children);
+
+    // console.log(raycaster_angular);
+    
+
+    // }
+    
+
+    
+
+
     // We have to run this outside angular zones,
     // because it could trigger heavy changeDetection cycles.
     this.ngZone.runOutsideAngular(() => {
@@ -452,6 +512,8 @@ private cubeAzureDir = -1;
       window.addEventListener('resize', () => {
         this.resize();
       });
+        this.renderer.domElement.addEventListener('mousemove', this.onMouseMove);
+
     });
   }
 
@@ -460,10 +522,37 @@ private cubeAzureDir = -1;
       this.render();
     });
     // (this.cube_main && this.cube_angular && this.cube_docker && this.cube_figma && this.cube_js && this.cube_react && this.cube_node && this.cube_github && this.cube_html5 && this.cube_azure && this.cube_mjml) 
-    if (this.sphere_main &&  this.cube_azure && this.cube_html5
+    if (
+      this.scene &&
+      this.sphere_main &&  this.cube_azure && this.cube_html5
        && this.cube_angular && this.cube_react && this.cube_figma && this.cube_js && this.cube_docker && this.cube_github && this.cube_node && this.cube_mjml && this.cube_main) {
 
 // console.log(this.cube_main.rotation.y);
+  this.raycaster.setFromCamera(this.mouse, this.camera);
+
+  const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+
+  if (intersects.length > 0) {
+    const hit = intersects[0].object;
+
+    // console.log(hit);
+    
+
+    if (hit !== this.hoveredObject) {
+
+      
+      this.hoveredObject = hit;
+      // Example: log or highlight
+      // console.log('Hovering:', hit.name || hit);
+      // if ((hit as THREE.Mesh).material) {
+      //   ((hit as THREE.Mesh).material as THREE.MeshStandardMaterial).emissive.set(0x222222);
+      // }
+    }
+  } else {
+    // console.log(this.hoveredObject);
+    
+    this.hoveredObject = null;
+  }
 
 
 if (this.cube_main.rotation.y <= -0.4) {
@@ -564,7 +653,6 @@ if (this.cube_mjml.position.y >= 0.02) {
 this.cube_mjml.position.y += 0.00028 * this.cubeMjmlDir;
 
 
-// AZURE (your original logic, unchanged)
 if (this.cube_azure.position.y <= -0.60) {
   this.cubeAzureDir = 1;   // start going up
 }
