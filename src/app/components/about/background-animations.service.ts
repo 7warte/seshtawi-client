@@ -31,7 +31,6 @@ export class BackgroundAnimationsService {
 
   private frameId: any = null;
 
-
   public constructor(private ngZone: NgZone) {
   }
 
@@ -352,6 +351,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.cube_main = new THREE.Mesh(geometry_main, textureMain);
     this.cube_main.position.y = 0.16
     this.cube_main.position.z = -1.49 
+    this.cube_main.castShadow= true;
     this.scene.add(this.cube_main);
 
     // cube angular                 
@@ -362,6 +362,7 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.cube_angular.position.x = -0.8
     this.cube_angular.position.z = -4.2 
     this.cube_angular.name='cube_angular'
+    this.cube_angular.castShadow= true;
     this.scene.add(this.cube_angular);
 
 
@@ -369,12 +370,16 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.cube_react.position.y = 1
     this.cube_react.position.x = -1.21
     this.cube_react.position.z = -3.6
+     this.cube_react.name='cube_react'
+     this.cube_react.castShadow= true;
     this.scene.add(this.cube_react);
 
     this.cube_figma = new THREE.Mesh(geometry, textureFigma);
     this.cube_figma.position.y =  1.8 
     this.cube_figma.position.x =  0 
     this.cube_figma.position.z =  -3.6 
+     this.cube_figma.name='cube_figma'
+     this.cube_figma.castShadow= true;
     this.scene.add(this.cube_figma);
 
     this.cube_js = new THREE.Mesh(geometry, textureJavascript);
@@ -382,12 +387,16 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.cube_js.position.y = 1.6
     this.cube_js.position.x =  0.9
     this.cube_js.position.z = -4 
+     this.cube_js.name='cube_javascript'
+     this.cube_js.castShadow= true;
     this.scene.add(this.cube_js);
 
     this.cube_docker = new THREE.Mesh(geometry, textureDocker);
     this.cube_docker.position.y =   1 
     this.cube_docker.position.x = 1.4
     this.cube_docker.position.z = -4.6 ;
+     this.cube_docker.name='cube_docker'
+     this.cube_docker.castShadow= true;
     this.scene.add(this.cube_docker);
 
     // cube react  cube_express              
@@ -396,11 +405,15 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.cube_github.position.y =-0.6 
     this.cube_github.position.x =  -.6
     this.cube_github.position.z = -3.3 
+     this.cube_github.name='cube_github'
+     this.cube_github.castShadow= true;
     this.scene.add(this.cube_github);
         this.cube_node = new THREE.Mesh(geometry, textureNode);
     this.cube_node.position.y =0.1 
     this.cube_node.position.x =  -1.2
     this.cube_node.position.z = -3.6 
+     this.cube_node.name='cube_node'
+     this.cube_node.castShadow= true;
     this.scene.add(this.cube_node);
 
 
@@ -408,26 +421,25 @@ const cube_angular_image: any =this.textureLoader.load('/assets/images/cube_text
     this.cube_html5.position.y =  -0.6 
     this.cube_html5.position.x =  0.2 
     this.cube_html5.position.z =  -4.2 
+     this.cube_html5.name='cube_html5'
+     this.cube_html5.castShadow= true;
     this.scene.add(this.cube_html5);
 
     this.cube_mjml = new THREE.Mesh(geometry, textureMJML);
     this.cube_mjml.position.y = -0
     this.cube_mjml.position.x =  1.3
     this.cube_mjml.position.z = -3.6 
+     this.cube_mjml.name='cube_mjml'
+     this.cube_mjml.castShadow= true;
     this.scene.add(this.cube_mjml);
 
     this.cube_azure = new THREE.Mesh(geometry, textureAzure);
     this.cube_azure.position.y =   -0.6
     this.cube_azure.position.x = .8
     this.cube_azure.position.z = -3.6 ;
+     this.cube_azure.name='cube_azure'
+     this.cube_azure.castShadow= true;
     this.scene.add(this.cube_azure);
-
-
-
-
-
-
-
 
 
 
@@ -535,7 +547,7 @@ console.log('o');
   if (intersects.length > 0) {
     const hit = intersects[0].object;
 
-    // console.log(hit);
+    console.log(hit);
     
 
     if (hit !== this.hoveredObject) {

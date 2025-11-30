@@ -77,7 +77,7 @@ this.screens[newActiveIndex].active = true
   }
 
 
-let test =  str.slice(0,150) + '<span style="color:yellow;opacity:1">WELCOME_TO_MY_BLOG</span>'  + str 
+// let test =  str.slice(0,150) + '<span style="color:yellow;opacity:1">WELCOME_TO_MY_BLOG</span>'  + str 
 
 // console.log(test);
 
@@ -89,7 +89,7 @@ let test =  str.slice(0,150) + '<span style="color:yellow;opacity:1">WELCOME_TO_
    }, 100);
   
 
-  this.binary.nativeElement.innerHTML = test
+  this.binary.nativeElement.innerHTML = str
 }
 
 //  updateBinary() {

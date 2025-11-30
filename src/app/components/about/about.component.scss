@@ -145,13 +145,15 @@
 
       }
 
+
+ 
       #screen-switcher{
         z-index: 5;
         display: flex;
         flex-direction: column;
         position: absolute;
         align-items: center;
-        bottom: 10px;
+        top: 30px;
         height: 20px;
         margin: auto;
         .actions{
@@ -166,10 +168,11 @@
             font-family: 'Quicksand';
             font-weight: 900;
             color:#AFA5B0 ;
-            // border-width: 1px;
+            border-width: 1px;
             border: none;
             border-radius: 5px;
-            width: 45px;
+            width: 25px;
+            font-weight: 900;
         color: black;
             &:hover{
               // color: white;
@@ -210,6 +213,11 @@ box-shadow: 0px 0px 10px 3px rgba(45,255,196,0.9);
       }
     }
 
+         @media (max-width:800px) {
+         #screen-switcher{
+          top: 10px !important;
+        }
+      }
 
     &.b{
 
